@@ -2351,7 +2351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 1423659017}
   speed: 3
-  mouseSensitivity: 2
+  mouseSensitivity: 4
   cameraTransform: {fileID: 1478003888}
   upperLimit: -50
   lowerLimit: 50
