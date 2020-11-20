@@ -25,41 +25,24 @@ public class EnemyController : MonoBehaviour
         randomPointDist = Vector3.Distance(randomPoints[currentRandomPoint].transform.position, transform.position);
 
         RaycastHit hit;
+        Ray rayCast = new Ray(transform.position, Vector3.forward);
 
-        Vector3 startRay = transform.position;
-        Vector3 endRay = Player.transform.position;
-        Vector3 direction = endRay - startRay;
+        if (Physics.SphereCast(transform.position, navMesh.height / 2, transform.forward, out hit, 6) && playerDist < perceptionDistance) {
+            seeingPlayer = hit.collider.gameObject.CompareTag("Player"); 
+        }
 
-        if (Physics.Raycast(transform.position, direction, out hit, 1000) && playerDist < perceptionDistance) {
-            if (hit.collider.gameObject.CompareTag("Player")) {
-                seeingPlayer = true;
-            } else {
-                seeingPlayer = false;
+        if (seeingPlayer) {
+            if (playerDist <= attackDistance) {
+                attack();
             }
-        }
-
-        if (playerDist > perceptionDistance) {
-            walk();
-        }
-
-        if (playerDist <= perceptionDistance && playerDist > chaseDistance) {
-            if (seeingPlayer == true){
-                look();
-            } else {
-                walk();
-            }
-        }
-
-        if (playerDist <= chaseDistance && playerDist > attackDistance) {
-            if (seeingPlayer == true) {
+            else if (playerDist <= chaseDistance) {
                 chase();
-            } else {
+            }
+            else {
                 walk();
             }
-        }
-
-        if (playerDist <= attackDistance && seeingPlayer == true) {
-            attack();
+        } else {
+            walk();
         }
 
         if (randomPointDist <= 8) {
@@ -74,20 +57,16 @@ public class EnemyController : MonoBehaviour
         navMesh.destination = randomPoints[currentRandomPoint].position;
     }
 
-    void look(){
-        navMesh.speed = 0;
-        transform.LookAt(Player);
-    }
-
     void chase(){
+        transform.LookAt(Player);
         navMesh.acceleration = 5;
         navMesh.speed = chaseVelocity;
         navMesh.destination = Player.position;
     }
 
+    // This actually attack mechanic needs to be added 
     void attack(){
         navMesh.acceleration = 0;
         navMesh.speed = 0;
     }
-
 }
