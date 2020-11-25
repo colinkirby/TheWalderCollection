@@ -9,26 +9,30 @@ public class EnemyController : MonoBehaviour
     public Transform[] randomPoints; 
 
     private float playerDist, randomPointDist;
+    private float fieldOfView;
     public int currentRandomPoint;
 
-    public float perceptionDistance, chaseDistance, attackDistance, walkVelocity, chaseVelocity;
-
+    public float chaseDistance, attackDistance, walkVelocity, chaseVelocity;
     public bool seeingPlayer; 
 
     void Start(){
         currentRandomPoint = Random.Range(0, randomPoints.Length);
         navMesh = transform.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        fieldOfView = 45;
     }
 
     void Update(){
         playerDist = Vector3.Distance(Player.transform.position, transform.position);
         randomPointDist = Vector3.Distance(randomPoints[currentRandomPoint].transform.position, transform.position);
 
+        Vector3 toPlayer = (Player.transform.position - transform.position).normalized;
         RaycastHit hit;
-        Ray rayCast = new Ray(transform.position, Vector3.forward);
-
-        if (Physics.SphereCast(transform.position, navMesh.height / 2, transform.forward, out hit, 6) && playerDist < perceptionDistance) {
-            seeingPlayer = hit.collider.gameObject.CompareTag("Player"); 
+        if (Vector3.Angle(toPlayer, transform.forward) <= fieldOfView) {
+            if (Physics.Raycast(transform.position, toPlayer, out hit)) {
+                seeingPlayer = hit.collider.gameObject.CompareTag("Player");
+            }
+        } else {
+            seeingPlayer = false;
         }
 
         if (seeingPlayer) {
@@ -37,8 +41,7 @@ public class EnemyController : MonoBehaviour
             }
             else if (playerDist <= chaseDistance) {
                 chase();
-            }
-            else {
+            } else {
                 walk();
             }
         } else {
