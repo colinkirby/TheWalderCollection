@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {   
     private UnityEngine.AI.NavMeshAgent navMesh;
     public Transform Player;
+    public Light playerLight;
     public Transform[] randomPoints; 
 
     private float playerDist, randomPointDist;
@@ -22,6 +23,14 @@ public class EnemyController : MonoBehaviour
     }
 
     void Update(){
+        if (Player.speed > 3f) {
+            // Change enemy speed or FOV 
+        }
+
+        if (playerLight.enabled == true) {
+            // Change enemy speed or FOV 
+        }
+
         playerDist = Vector3.Distance(Player.transform.position, transform.position);
         randomPointDist = Vector3.Distance(randomPoints[currentRandomPoint].transform.position, transform.position);
 
