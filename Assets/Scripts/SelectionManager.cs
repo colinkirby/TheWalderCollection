@@ -8,31 +8,33 @@ public class SelectionManager : MonoBehaviour
 
     [SerializeField] private Material highlightMaterial;
     [SerializeField] private string selectableTag = "Selectable";
+    public GameObject selectableUI;
+
+    void Start() {
+        selectableUI.SetActive(false);
+    }
 
     
     void Update()
     {
         var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2f, Screen.height/2f, 0f));
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit)) {
+        if (Physics.Raycast(ray, out hit, 2)) {
             var selection = hit.transform;
-            print(this.gameObject);
             
             if(selection.CompareTag(selectableTag)) {
-                print("Looking at art");
+                selectableUI.SetActive(true);
                 if(Input.GetKeyDown (KeyCode.E)) {
-                    // var selectionRenderer = selection.GetComponent<Renderer>();
-                    // if (selectionRenderer != null) {
-                    //     selectionRenderer.material = highlightMaterial;
-                    // }
-                    Destroy(gameObject);
+                    Destroy(hit.transform.gameObject);
                 }
-
             } else {
-                print("Not looking at art");
-            }
-            
+                if(selectableUI.activeSelf) {
+                    selectableUI.SetActive(false);
+                }
+            }  
         }
+
+
 
     }
 }
