@@ -45,6 +45,7 @@ public class PlayerSoundManager : MonoBehaviour
                 isSneaking = true;
             }
         } else {
+            audio.Stop();
             isWalking = false;
             isRunning = false;
             isSneaking = false;
