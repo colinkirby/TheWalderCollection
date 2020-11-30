@@ -8,12 +8,7 @@ public class SelectionManager : MonoBehaviour
 
     [SerializeField] private Material highlightMaterial;
     [SerializeField] private string selectableTag = "Selectable";
-    public GameObject selectableUI;
-
-    void Start() {
-        selectableUI.SetActive(false);
-    }
-
+    public Canvas canvas;
     
     void Update()
     {
@@ -23,13 +18,13 @@ public class SelectionManager : MonoBehaviour
             var selection = hit.transform;
             
             if(selection.CompareTag(selectableTag)) {
-                selectableUI.SetActive(true);
+                canvas.enabled = true;
                 if(Input.GetKeyDown (KeyCode.E)) {
                     Destroy(hit.transform.gameObject);
                 }
             } else {
-                if(selectableUI.activeSelf) {
-                    selectableUI.SetActive(false);
+                if(canvas.enabled) {
+                    canvas.enabled = false;;
                 }
             }  
         }
