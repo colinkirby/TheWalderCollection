@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
         // Sprinting
         if (Input.GetKeyDown (KeyCode.LeftShift))
         {
-            print("Sprint");
             speed = 6f;
         } 
         if (Input.GetKeyUp (KeyCode.LeftShift)) {
@@ -55,7 +54,6 @@ public class PlayerController : MonoBehaviour
         
         // Sneaking
         if (Input.GetKeyDown (KeyCode.LeftControl)) {
-            print("Sneak");
             speed = 1.5f;
         }
         if (Input.GetKeyUp (KeyCode.LeftControl)) {

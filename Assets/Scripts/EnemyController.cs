@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {   
@@ -37,30 +38,30 @@ public class EnemyController : MonoBehaviour
 
         if (seeingPlayer) {
             if (playerDist <= attackDistance) {
-                attack();
+                Attack();
             }
             else if (playerDist <= chaseDistance) {
-                chase();
+                Chase();
             } else {
-                walk();
+                Walk();
             }
         } else {
-            walk();
+            Walk();
         }
 
         if (randomPointDist <= 8) {
             currentRandomPoint = Random.Range(0, randomPoints.Length);
-            walk();
+            Walk();
         }
     }
 
-    void walk(){
+    void Walk(){
         navMesh.acceleration = 1;
         navMesh.speed = walkVelocity;
         navMesh.destination = randomPoints[currentRandomPoint].position;
     }
 
-    void chase(){
+    void Chase(){
         transform.LookAt(Player);
         navMesh.acceleration = 5;
         navMesh.speed = chaseVelocity;
@@ -68,8 +69,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // This actually attack mechanic needs to be added 
-    void attack(){
-        navMesh.acceleration = 0;
-        navMesh.speed = 0;
+    public void Attack(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
