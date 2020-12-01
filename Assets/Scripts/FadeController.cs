@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIController : MonoBehaviour
+public class FadeController : MonoBehaviour
 {
     public GameObject blackOutSquare;
 
@@ -17,13 +17,11 @@ public class UIController : MonoBehaviour
         }
     }
 
-    IEnumerator FadeBlackOutSquare(bool fadeToBlack = true, int fadeSpeed = 5) {
-        print("coroutine called");
+    IEnumerator FadeBlackOutSquare(bool fadeToBlack = true, int fadeSpeed = 2) {
         Color objectColor = blackOutSquare.GetComponent<Image>().color;
         float fadeAmount;
 
         if (fadeToBlack) {
-            print("fading to black");
             while (blackOutSquare.GetComponent<Image>().color.a < 1) {
                 fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
 
@@ -32,7 +30,6 @@ public class UIController : MonoBehaviour
                 yield return null; 
             }
         } else {
-            print("fading from black");
             while (blackOutSquare.GetComponent<Image>().color.a > 0) {
                 fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
 
