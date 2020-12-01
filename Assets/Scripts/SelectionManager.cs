@@ -18,14 +18,13 @@ public class SelectionManager : MonoBehaviour
             var selection = hit.transform;
             
             if(selection.CompareTag(selectableTag)) {
+                print("LOFDJSAFJI");
                 canvas.enabled = true;
                 if(Input.GetKeyDown (KeyCode.E)) {
                     Destroy(hit.transform.gameObject);
                 }
             } else {
-                if(canvas.enabled) {
-                    canvas.enabled = false;;
-                }
+                canvas.enabled = false;;
             }  
         }
 
