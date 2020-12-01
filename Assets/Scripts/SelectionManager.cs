@@ -14,19 +14,24 @@ public class SelectionManager : MonoBehaviour
     {
         var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2f, Screen.height/2f, 0f));
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 2)) {
+        if (Physics.Raycast(ray, out hit, 3)) {
             var selection = hit.transform;
             
             if(selection.CompareTag(selectableTag)) {
+                print("LOOKING!");
                 canvas.enabled = true;
                 if(Input.GetKeyDown (KeyCode.E)) {
                     Destroy(hit.transform.gameObject);
                 }
             } else {
                 if(canvas.enabled) {
-                    canvas.enabled = false;;
+                    canvas.enabled = false;
                 }
-            }  
+            }
+        } else {
+            if(canvas.enabled) {
+                canvas.enabled = false;
+            }
         }
 
 
