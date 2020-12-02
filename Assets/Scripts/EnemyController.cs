@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {   
@@ -16,10 +18,16 @@ public class EnemyController : MonoBehaviour
     public float chaseDistance, attackDistance, walkVelocity, chaseVelocity;
     public bool seeingPlayer; 
 
+    public GameObject attackSequence;
+    private PlayableDirector director;
+    public GameObject blackOutSquare;
+    private bool finishedFading = true;
+
     void Start(){
         currentRandomPoint = Random.Range(0, randomPoints.Length);
         navMesh = transform.GetComponent<UnityEngine.AI.NavMeshAgent>();
         fieldOfView = 45;
+        director = attackSequence.GetComponent<PlayableDirector>();
     }
 
     void Update(){
@@ -38,7 +46,12 @@ public class EnemyController : MonoBehaviour
 
         if (seeingPlayer) {
             if (playerDist <= attackDistance) {
+                navMesh.acceleration = 0;
+                navMesh.speed = 0;
                 Attack();
+                if (finishedFading) {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                } 
             }
             else if (playerDist <= chaseDistance) {
                 Chase();
@@ -68,8 +81,33 @@ public class EnemyController : MonoBehaviour
         navMesh.destination = Player.position;
     }
 
-    // This actually attack mechanic needs to be added 
-    public void Attack(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    void Attack() {
+        director.Play();
+        StartCoroutine(FadeBlackOutSquare());
+    }
+
+    IEnumerator FadeBlackOutSquare(bool fadeToBlack = true, float fadeSpeed = 1) {
+        Color objectColor = blackOutSquare.GetComponent<Image>().color;
+        float fadeAmount;
+        finishedFading = false;
+
+        if (fadeToBlack) {
+            while (blackOutSquare.GetComponent<Image>().color.a < 1) {
+                fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
+
+                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+                blackOutSquare.GetComponent<Image>().color = objectColor; 
+                yield return null; 
+            }
+        } else {
+            while (blackOutSquare.GetComponent<Image>().color.a > 0) {
+                fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
+
+                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+                blackOutSquare.GetComponent<Image>().color = objectColor;
+                yield return null;
+            }
+        }
+        finishedFading = true;
     }
 }
