@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     public GameObject attackSequence;
     private PlayableDirector director;
     public GameObject blackOutSquare;
-    private bool finishedFading = true;
+    private bool fading = false;
 
     void Start(){
         currentRandomPoint = Random.Range(0, randomPoints.Length);
@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour
                 navMesh.acceleration = 0;
                 navMesh.speed = 0;
                 Attack();
-                if (finishedFading) {
+                if (!fading) {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 } 
             }
@@ -86,28 +86,18 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(FadeBlackOutSquare());
     }
 
-    IEnumerator FadeBlackOutSquare(bool fadeToBlack = true, float fadeSpeed = 1) {
+    IEnumerator FadeBlackOutSquare(float fadeSpeed = 1) {
         Color objectColor = blackOutSquare.GetComponent<Image>().color;
         float fadeAmount;
-        finishedFading = false;
+        fading = true;
 
-        if (fadeToBlack) {
-            while (blackOutSquare.GetComponent<Image>().color.a < 1) {
-                fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
+        while (blackOutSquare.GetComponent<Image>().color.a < 1) {
+            fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
 
-                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-                blackOutSquare.GetComponent<Image>().color = objectColor; 
-                yield return null; 
-            }
-        } else {
-            while (blackOutSquare.GetComponent<Image>().color.a > 0) {
-                fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
-
-                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
-                blackOutSquare.GetComponent<Image>().color = objectColor;
-                yield return null;
-            }
+            objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+            blackOutSquare.GetComponent<Image>().color = objectColor; 
+            yield return null; 
         }
-        finishedFading = true;
+        fading = false;
     }
 }
