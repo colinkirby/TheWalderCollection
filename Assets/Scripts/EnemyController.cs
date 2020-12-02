@@ -69,7 +69,7 @@ public class EnemyController : MonoBehaviour
     }
 
     void Walk(){
-        navMesh.acceleration = 1;
+        navMesh.acceleration = 2;
         navMesh.speed = walkVelocity;
         navMesh.destination = randomPoints[currentRandomPoint].position;
     }
