@@ -15047,7 +15047,7 @@ MonoBehaviour:
   currentRandomPoint: 0
   chaseDistance: 5
   attackDistance: 2
-  walkVelocity: 1
+  walkVelocity: 2
   chaseVelocity: 5
   seeingPlayer: 0
   attackSequence: {fileID: 741692214}
