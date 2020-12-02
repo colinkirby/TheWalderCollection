@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {   
@@ -15,10 +18,16 @@ public class EnemyController : MonoBehaviour
     public float chaseDistance, attackDistance, walkVelocity, chaseVelocity;
     public bool seeingPlayer; 
 
+    public GameObject attackSequence;
+    private PlayableDirector director;
+    public GameObject blackOutSquare;
+    private bool fading = false;
+
     void Start(){
         currentRandomPoint = Random.Range(0, randomPoints.Length);
         navMesh = transform.GetComponent<UnityEngine.AI.NavMeshAgent>();
         fieldOfView = 45;
+        director = attackSequence.GetComponent<PlayableDirector>();
     }
 
     void Update(){
@@ -37,39 +46,58 @@ public class EnemyController : MonoBehaviour
 
         if (seeingPlayer) {
             if (playerDist <= attackDistance) {
-                attack();
+                navMesh.acceleration = 0;
+                navMesh.speed = 0;
+                Attack();
+                if (!fading) {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                } 
             }
             else if (playerDist <= chaseDistance) {
-                chase();
+                Chase();
             } else {
-                walk();
+                Walk();
             }
         } else {
-            walk();
+            Walk();
         }
 
         if (randomPointDist <= 8) {
             currentRandomPoint = Random.Range(0, randomPoints.Length);
-            walk();
+            Walk();
         }
     }
 
-    void walk(){
+    void Walk(){
         navMesh.acceleration = 1;
         navMesh.speed = walkVelocity;
         navMesh.destination = randomPoints[currentRandomPoint].position;
     }
 
-    void chase(){
+    void Chase(){
         transform.LookAt(Player);
         navMesh.acceleration = 5;
         navMesh.speed = chaseVelocity;
         navMesh.destination = Player.position;
     }
 
-    // This actually attack mechanic needs to be added 
-    void attack(){
-        navMesh.acceleration = 0;
-        navMesh.speed = 0;
+    void Attack() {
+        director.Play();
+        StartCoroutine(FadeBlackOutSquare());
+    }
+
+    IEnumerator FadeBlackOutSquare(float fadeSpeed = 1) {
+        Color objectColor = blackOutSquare.GetComponent<Image>().color;
+        float fadeAmount;
+        fading = true;
+
+        while (blackOutSquare.GetComponent<Image>().color.a < 1) {
+            fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
+
+            objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+            blackOutSquare.GetComponent<Image>().color = objectColor; 
+            yield return null; 
+        }
+        fading = false;
     }
 }

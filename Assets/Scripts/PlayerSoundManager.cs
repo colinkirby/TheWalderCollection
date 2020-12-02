@@ -14,12 +14,12 @@ public class PlayerSoundManager : MonoBehaviour
     public AudioClip running;
     public AudioClip sneaking;
 
-    private AudioSource audio;
+    private AudioSource audioClip;
 
     void Start()
     {
         player = this.transform.parent.GetComponent<PlayerController>();
-        audio = gameObject.GetComponent<AudioSource>();
+        audioClip = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class PlayerSoundManager : MonoBehaviour
     {
         GetState();
         
-        if((isWalking || isRunning || isSneaking) && !audio.isPlaying) {
+        if((isWalking || isRunning || isSneaking) && !audioClip.isPlaying) {
             PlayAudio();
         }
     }
@@ -45,7 +45,7 @@ public class PlayerSoundManager : MonoBehaviour
                 isSneaking = true;
             }
         } else {
-            audio.Stop();
+            audioClip.Stop();
             isWalking = false;
             isRunning = false;
             isSneaking = false;
@@ -54,14 +54,14 @@ public class PlayerSoundManager : MonoBehaviour
 
     void PlayAudio() {
         if(isWalking) {
-            audio.clip = walking;
-            audio.Play();
+            audioClip.clip = walking;
+            audioClip.Play();
         } else if(isRunning) {
-            audio.clip = running;
-            audio.Play();
+            audioClip.clip = running;
+            audioClip.Play();
         } else if(isSneaking) {
-            audio.clip = sneaking;
-            audio.Play();
+            audioClip.clip = sneaking;
+            audioClip.Play();
         }
     }
 }
