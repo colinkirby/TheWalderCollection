@@ -21,7 +21,6 @@ public class EnemyController : MonoBehaviour
     public GameObject attackSequence;
     private PlayableDirector director;
     public GameObject blackOutSquare;
-    private bool fading = false;
 
     void Start(){
         currentRandomPoint = Random.Range(0, randomPoints.Length);
@@ -49,9 +48,6 @@ public class EnemyController : MonoBehaviour
                 navMesh.acceleration = 0;
                 navMesh.speed = 0;
                 Attack();
-                if (!fading) {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                } 
             }
             else if (playerDist <= chaseDistance) {
                 Chase();
@@ -94,7 +90,6 @@ public class EnemyController : MonoBehaviour
     IEnumerator FadeBlackOutSquare(float fadeSpeed = 1) {
         Color objectColor = blackOutSquare.GetComponent<Image>().color;
         float fadeAmount;
-        fading = true;
 
         while (blackOutSquare.GetComponent<Image>().color.a < 1) {
             fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
@@ -103,6 +98,6 @@ public class EnemyController : MonoBehaviour
             blackOutSquare.GetComponent<Image>().color = objectColor; 
             yield return null; 
         }
-        fading = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
