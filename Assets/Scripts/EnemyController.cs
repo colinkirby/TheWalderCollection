@@ -59,7 +59,12 @@ public class EnemyController : MonoBehaviour
                 Walk();
             }
         } else {
-            Walk();
+            if (playerDist <= chaseDistance) {
+                transform.LookAt(Player);
+            } 
+            else {
+                Walk();
+            }
         }
 
         if (randomPointDist <= 8) {
