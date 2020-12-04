@@ -16,12 +16,10 @@ public class EnemyController : MonoBehaviour
     public int currentRandomPoint;
 
     public float chaseDistance, attackDistance, walkVelocity, chaseVelocity;
-    public bool seeingPlayer; 
 
     public GameObject attackSequence;
     private PlayableDirector director;
     public GameObject blackOutSquare;
-    private bool fading = false;
 
     void Start(){
         currentRandomPoint = Random.Range(0, randomPoints.Length);
@@ -34,24 +32,11 @@ public class EnemyController : MonoBehaviour
         playerDist = Vector3.Distance(Player.transform.position, transform.position);
         randomPointDist = Vector3.Distance(randomPoints[currentRandomPoint].transform.position, transform.position);
 
-        Vector3 toPlayer = (Player.transform.position - transform.position).normalized;
-        RaycastHit hit;
-        if (Vector3.Angle(toPlayer, transform.forward) <= fieldOfView) {
-            if (Physics.Raycast(transform.position, toPlayer, out hit)) {
-                seeingPlayer = hit.collider.gameObject.CompareTag("Player");
-            }
-        } else {
-            seeingPlayer = false;
-        }
-
-        if (seeingPlayer) {
+        if (SeeingPlayer()) {
             if (playerDist <= attackDistance) {
                 navMesh.acceleration = 0;
                 navMesh.speed = 0;
                 Attack();
-                if (!fading) {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                } 
             }
             else if (playerDist <= chaseDistance) {
                 Chase();
@@ -71,6 +56,17 @@ public class EnemyController : MonoBehaviour
             currentRandomPoint = Random.Range(0, randomPoints.Length);
             Walk();
         }
+    }
+
+    bool SeeingPlayer() {
+        Vector3 toPlayer = (Player.transform.position - transform.position).normalized;
+        RaycastHit hit;
+        if (Vector3.Angle(toPlayer, transform.forward) <= fieldOfView) {
+            if (Physics.Raycast(transform.position, toPlayer, out hit)) {
+                return hit.collider.gameObject.CompareTag("Player");
+            }
+        }
+        return false;
     }
 
     void Walk(){
@@ -94,7 +90,6 @@ public class EnemyController : MonoBehaviour
     IEnumerator FadeBlackOutSquare(float fadeSpeed = 1) {
         Color objectColor = blackOutSquare.GetComponent<Image>().color;
         float fadeAmount;
-        fading = true;
 
         while (blackOutSquare.GetComponent<Image>().color.a < 1) {
             fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
@@ -103,6 +98,6 @@ public class EnemyController : MonoBehaviour
             blackOutSquare.GetComponent<Image>().color = objectColor; 
             yield return null; 
         }
-        fading = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
