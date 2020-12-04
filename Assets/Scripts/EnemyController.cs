@@ -4,12 +4,16 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.AI;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class EnemyController : MonoBehaviour
 {   
-    private UnityEngine.AI.NavMeshAgent navMesh;
-    public Transform Player;
+    public NavMeshAgent agent;
+    public Transform player;
     public Transform[] randomPoints; 
+
+    public ThirdPersonCharacter character;
 
     private float playerDist, randomPointDist;
     private float fieldOfView;
@@ -22,20 +26,20 @@ public class EnemyController : MonoBehaviour
     public GameObject blackOutSquare;
 
     void Start(){
+        agent.updateRotation = false;
         currentRandomPoint = Random.Range(0, randomPoints.Length);
-        navMesh = transform.GetComponent<UnityEngine.AI.NavMeshAgent>();
         fieldOfView = 45;
         director = attackSequence.GetComponent<PlayableDirector>();
     }
 
     void Update(){
-        playerDist = Vector3.Distance(Player.transform.position, transform.position);
+        playerDist = Vector3.Distance(player.transform.position, transform.position);
         randomPointDist = Vector3.Distance(randomPoints[currentRandomPoint].transform.position, transform.position);
 
         if (SeeingPlayer()) {
             if (playerDist <= attackDistance) {
-                navMesh.acceleration = 0;
-                navMesh.speed = 0;
+                agent.acceleration = 0;
+                agent.speed = 0;
                 Attack();
             }
             else if (playerDist <= chaseDistance) {
@@ -45,7 +49,7 @@ public class EnemyController : MonoBehaviour
             }
         } else {
             if (playerDist <= chaseDistance) {
-                transform.LookAt(Player);
+                transform.LookAt(player);
             } 
             else {
                 Walk();
@@ -59,7 +63,7 @@ public class EnemyController : MonoBehaviour
     }
 
     bool SeeingPlayer() {
-        Vector3 toPlayer = (Player.transform.position - transform.position).normalized;
+        Vector3 toPlayer = (player.transform.position - transform.position).normalized;
         RaycastHit hit;
         if (Vector3.Angle(toPlayer, transform.forward) <= fieldOfView) {
             if (Physics.Raycast(transform.position, toPlayer, out hit)) {
@@ -70,16 +74,26 @@ public class EnemyController : MonoBehaviour
     }
 
     void Walk(){
-        navMesh.acceleration = 2;
-        navMesh.speed = walkVelocity;
-        navMesh.destination = randomPoints[currentRandomPoint].position;
+        agent.acceleration = 2;
+        agent.speed = walkVelocity;
+        agent.destination = randomPoints[currentRandomPoint].position;
+        if (agent.remainingDistance > agent.stoppingDistance) {
+           character.Move(agent.desiredVelocity, false, false);
+        } else {
+            character.Move(Vector3.zero, false, false);
+        }
     }
 
     void Chase(){
-        transform.LookAt(Player);
-        navMesh.acceleration = 5;
-        navMesh.speed = chaseVelocity;
-        navMesh.destination = Player.position;
+        transform.LookAt(player);
+        agent.acceleration = 5;
+        agent.speed = chaseVelocity;
+        agent.destination = player.position;
+        if (agent.remainingDistance > agent.stoppingDistance) {
+           character.Move(agent.desiredVelocity, false, false);
+        } else {
+            character.Move(Vector3.zero, false, false);
+        }
     }
 
     void Attack() {
