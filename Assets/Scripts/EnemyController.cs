@@ -16,7 +16,6 @@ public class EnemyController : MonoBehaviour
     public int currentRandomPoint;
 
     public float chaseDistance, attackDistance, walkVelocity, chaseVelocity;
-    public bool seeingPlayer; 
 
     public GameObject attackSequence;
     private PlayableDirector director;
@@ -33,17 +32,7 @@ public class EnemyController : MonoBehaviour
         playerDist = Vector3.Distance(Player.transform.position, transform.position);
         randomPointDist = Vector3.Distance(randomPoints[currentRandomPoint].transform.position, transform.position);
 
-        Vector3 toPlayer = (Player.transform.position - transform.position).normalized;
-        RaycastHit hit;
-        if (Vector3.Angle(toPlayer, transform.forward) <= fieldOfView) {
-            if (Physics.Raycast(transform.position, toPlayer, out hit)) {
-                seeingPlayer = hit.collider.gameObject.CompareTag("Player");
-            }
-        } else {
-            seeingPlayer = false;
-        }
-
-        if (seeingPlayer) {
+        if (SeeingPlayer()) {
             if (playerDist <= attackDistance) {
                 navMesh.acceleration = 0;
                 navMesh.speed = 0;
@@ -67,6 +56,17 @@ public class EnemyController : MonoBehaviour
             currentRandomPoint = Random.Range(0, randomPoints.Length);
             Walk();
         }
+    }
+
+    bool SeeingPlayer() {
+        Vector3 toPlayer = (Player.transform.position - transform.position).normalized;
+        RaycastHit hit;
+        if (Vector3.Angle(toPlayer, transform.forward) <= fieldOfView) {
+            if (Physics.Raycast(transform.position, toPlayer, out hit)) {
+                return hit.collider.gameObject.CompareTag("Player");
+            }
+        }
+        return false;
     }
 
     void Walk(){
