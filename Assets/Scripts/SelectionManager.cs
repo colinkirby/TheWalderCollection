@@ -8,22 +8,27 @@ public class SelectionManager : MonoBehaviour
 
     [SerializeField] private Material highlightMaterial;
     [SerializeField] private string selectableTag = "Selectable";
+    [SerializeField] private string notSelectableTag = "NotSelectable";
+
     public Canvas canvas;
     
     void Update()
     {
+        RayCastObject();
+    }
+
+    void RayCastObject() {
         var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2f, Screen.height/2f, 0f));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 3)) {
             var selection = hit.transform;
             
             if(selection.CompareTag(selectableTag)) {
-                print("LOOKING!");
-                canvas.enabled = true;
-                if(Input.GetKeyDown (KeyCode.E)) {
-                    Destroy(hit.transform.gameObject);
-                }
-            } else {
+                DestroyPainting(selection);
+            }  else if(selection.CompareTag(notSelectableTag)) {
+                IncorrectPainting();
+            }
+            else {
                 if(canvas.enabled) {
                     canvas.enabled = false;
                 }
@@ -33,8 +38,17 @@ public class SelectionManager : MonoBehaviour
                 canvas.enabled = false;
             }
         }
+    }
 
+    void DestroyPainting(Transform selection) {
+        canvas.enabled = true;
+        if(Input.GetKeyDown (KeyCode.E)) {
+            Destroy(selection.gameObject);
+        }
+    }
 
-
+    void IncorrectPainting() {
+        canvas.enabled = true;
+        print("Do something");
     }
 }

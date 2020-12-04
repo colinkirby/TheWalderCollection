@@ -16,52 +16,59 @@ public class PlayerSoundManager : MonoBehaviour
 
     private AudioSource audioClip;
 
+    public enum MovementType {
+        NotMoving,
+        Walking,
+        Running,
+        Sneaking
+    }
+
+    private MovementType currentMovementType;
+
     void Start()
     {
         player = this.transform.parent.GetComponent<PlayerController>();
         audioClip = gameObject.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
+    // Enum
     void Update()
     {
         GetState();
         
-        if((isWalking || isRunning || isSneaking) && !audioClip.isPlaying) {
+        if(currentMovementType != MovementType.NotMoving && !audioClip.isPlaying) {
             PlayAudio();
         }
     }
 
     void GetState() {
-        if((Input.GetAxisRaw("Horizontal") != 0f) || Input.GetAxisRaw("Vertical") != 0f) {
-            isWalking = true;
+        bool isMovingHorizontal = Input.GetAxisRaw("Horizontal") != 0f;
+        bool isMovingVertical = Input.GetAxisRaw("Vertical") != 0f;
+
+        if(isMovingHorizontal || isMovingVertical) {
             if(player.speed == 6f) {
-                isWalking = false;
-                isSneaking = false;
-                isRunning = true;
-            } else if(player.speed == 1.5f) {
-                isWalking = false;
-                isRunning = false;
-                isSneaking = true;
+                currentMovementType = MovementType.Running;
+            } else if(player.speed == 3f) {
+                currentMovementType = MovementType.Walking;
+            } else {
+                currentMovementType = MovementType.Sneaking;
             }
         } else {
             audioClip.Stop();
-            isWalking = false;
-            isRunning = false;
-            isSneaking = false;
+            currentMovementType = MovementType.NotMoving;
         }
     }
 
     void PlayAudio() {
-        if(isWalking) {
+
+        if(currentMovementType == MovementType.Walking) {
             audioClip.clip = walking;
-            audioClip.Play();
-        } else if(isRunning) {
+        } else if(currentMovementType == MovementType.Running) {
             audioClip.clip = running;
-            audioClip.Play();
-        } else if(isSneaking) {
+        } else if(currentMovementType == MovementType.Sneaking) {
             audioClip.clip = sneaking;
-            audioClip.Play();
         }
+        audioClip.Play();
+
     }
 }
