@@ -20,16 +20,12 @@ public class EnemyController : MonoBehaviour
     public int currentRandomPoint;
 
     public float chaseDistance, attackDistance, walkVelocity, chaseVelocity;
-
-    public GameObject attackSequence;
-    private PlayableDirector director;
     public GameObject blackOutSquare;
 
     void Start(){
         agent.updateRotation = false;
         currentRandomPoint = Random.Range(0, randomPoints.Length);
         fieldOfView = 45;
-        director = attackSequence.GetComponent<PlayableDirector>();
     }
 
     void Update(){
@@ -40,7 +36,7 @@ public class EnemyController : MonoBehaviour
             if (playerDist <= attackDistance) {
                 agent.acceleration = 0;
                 agent.speed = 0;
-                Attack();
+                StartCoroutine(FadeBlackOutSquare());
             }
             else if (playerDist <= chaseDistance) {
                 Chase();
@@ -94,11 +90,6 @@ public class EnemyController : MonoBehaviour
         } else {
             character.Move(Vector3.zero, false, false);
         }
-    }
-
-    void Attack() {
-        director.Play();
-        StartCoroutine(FadeBlackOutSquare());
     }
 
     IEnumerator FadeBlackOutSquare(float fadeSpeed = 1) {
