@@ -132,17 +132,6 @@ GameObject:
   - component: {fileID: 532255786}
   - component: {fileID: 532255788}
   - component: {fileID: 532255787}
-  - component: {fileID: 532255790}
-  - component: {fileID: 532255789}
-  - component: {fileID: 532255791}
-  - component: {fileID: 532255792}
-  - component: {fileID: 532255793}
-  - component: {fileID: 532255794}
-  - component: {fileID: 532255795}
-  - component: {fileID: 532255798}
-  - component: {fileID: 532255797}
-  - component: {fileID: 532255796}
-  - component: {fileID: 532255799}
   - component: {fileID: 532255800}
   m_Layer: 5
   m_Name: Text
@@ -167,8 +156,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -275}
-  m_SizeDelta: {x: 700, y: 1000}
+  m_AnchoredPosition: {x: 4, y: -232}
+  m_SizeDelta: {x: 800, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &532255787
 MonoBehaviour:
@@ -190,7 +179,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    m_Font: {fileID: 12800000, guid: e4e4fe99364ef114fb2108260d1d033d, type: 3}
     m_FontSize: 24
     m_FontStyle: 1
     m_BestFit: 0
@@ -203,15 +192,15 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Tonight I received a pair of phone calls. \r\nThe first was from a Serb
-    by the name of Oskar Winckler-Zucker, a shepherd out in Obljaj. That sad town.
-    The phone call must have been expensive. His children are missing. Their names
-    are Rahel and Evike. \r\nThe second: an old Romanian cobbler. Reticent. His son
-    is missing as well, a boy by the name of Janos Kulcs. Janos Kulcs was arrested
-    in  August of 1912, here in Ilid\u017Ea. The boy broke into a traveler\u2019s
+    by the name of Oskar \nWinckler-Zucker, a shepherd out in Obljaj. That \nsad
+    town. The phone call must have been expensive. His children are missing. Their
+    names are Rahel \nand Evike. \r\nThe second: an old Romanian cobbler. Reticent.
+    His son is missing as well, a boy by the name of Janos Kulcs. Janos Kulcs was
+    arrested in  August of \n1912, here in Ilid\u017Ea. The boy broke into a \ntraveler\u2019s
     safe in an inn in Marijin Dvor. \r\nNothing on the siblings Winckler-Zucker.
-    The father says no animals are missing. Not a late night trailing a lamb, it
-    appears. \r\nWill investigate further, after a cigar. \r\n\r\nOne last thing:
-    Both fathers reported hearing a motorcar last night. Not common, not in Obljaj.\r\n\t\r\n-Chief
+    The \nfather says no animals are missing. Not a late \nnight trailing a lamb,
+    it appears. \r\nWill investigate further, after a cigar. \r\n\r\nOne last thing:
+    Both fathers reported hearing a \nmotorcar last night. Not common, not in Obljaj.\r\n\t\r\n-Chief
     Inspector Marton Hell"
 --- !u!222 &532255788
 CanvasRenderer:
@@ -221,213 +210,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532255785}
   m_CullTransparentMesh: 0
---- !u!114 &532255789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532255785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d52704dac36fd4389b27c3991c3fd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  playOnAwake: 1
-  delayToStart: 0
-  delayBetweenChars: 0.125
-  delayAfterPunctuation: 0.5
-  story: 
-  originDelayBetweenChars: 0
-  lastCharPunctuation: 0
---- !u!114 &532255790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532255785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d52704dac36fd4389b27c3991c3fd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  playOnAwake: 1
-  delayToStart: 0
-  delayBetweenChars: 0.125
-  delayAfterPunctuation: 0.5
-  story: 
-  originDelayBetweenChars: 0
-  lastCharPunctuation: 0
---- !u!114 &532255791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532255785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d52704dac36fd4389b27c3991c3fd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  playOnAwake: 1
-  delayToStart: 0
-  delayBetweenChars: 0.025
-  delayAfterPunctuation: 0.15
-  story: 
-  originDelayBetweenChars: 0
-  lastCharPunctuation: 0
---- !u!114 &532255792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532255785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d52704dac36fd4389b27c3991c3fd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  playOnAwake: 1
-  delayToStart: 0
-  delayBetweenChars: 0.05
-  delayAfterPunctuation: 0.15
-  story: 
-  originDelayBetweenChars: 0
-  lastCharPunctuation: 0
---- !u!114 &532255793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532255785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d52704dac36fd4389b27c3991c3fd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  playOnAwake: 1
-  delayToStart: 0
-  delayBetweenChars: 0.05
-  delayAfterPunctuation: 0.4
-  story: 
-  originDelayBetweenChars: 0
-  lastCharPunctuation: 0
---- !u!114 &532255794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532255785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f34c71906413b0478c529c33d79dc1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  playOnAwake: 1
-  delayToStart: 0
-  delayBetweenChars: 0.05
-  delayAfterPunctuation: 0.4
-  AudioTyping: {fileID: 0}
---- !u!114 &532255795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532255785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f34c71906413b0478c529c33d79dc1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  playOnAwake: 1
-  delayToStart: 0
-  delayBetweenChars: 0.05
-  delayAfterPunctuation: 0.4
-  AudioTyping: {fileID: 0}
---- !u!114 &532255796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532255785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f34c71906413b0478c529c33d79dc1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  playOnAwake: 1
-  delayToStart: 0
-  delayBetweenChars: 0.05
-  delayAfterPunctuation: 0.4
-  AudioTyping: {fileID: 0}
---- !u!114 &532255797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532255785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f34c71906413b0478c529c33d79dc1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  playOnAwake: 1
-  delayToStart: 0
-  delayBetweenChars: 0.05
-  delayAfterPunctuation: 0.4
-  AudioTyping: {fileID: 0}
---- !u!114 &532255798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532255785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f34c71906413b0478c529c33d79dc1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  playOnAwake: 1
-  delayToStart: 0
-  delayBetweenChars: 0.05
-  delayAfterPunctuation: 0.4
-  AudioTyping: {fileID: 0}
---- !u!114 &532255799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532255785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d221fb26fb4f6941959fe14c3e2e2ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  playOnAwake: 1
-  delayToStart: 0
-  delayBetweenChars: 0.125
-  delayAfterPunctuation: 0.5
 --- !u!114 &532255800
 MonoBehaviour:
   m_ObjectHideFlags: 0
