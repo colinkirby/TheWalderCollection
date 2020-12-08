@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
             if (playerDist <= attackDistance) {
                 agent.acceleration = 0;
                 agent.speed = 0;
+                agent.velocity = Vector3.zero;
                 StartCoroutine(FadeBlackOutSquare());
             }
             else if (playerDist <= chaseDistance) {
@@ -45,7 +46,8 @@ public class EnemyController : MonoBehaviour
             }
         } else {
             if (playerDist <= chaseDistance) {
-                transform.LookAt(player);
+                Vector3 position = new Vector3(player.position.x, transform.position.y, player.position.z);
+                transform.LookAt(position);
             } 
             else {
                 Walk();
@@ -81,7 +83,8 @@ public class EnemyController : MonoBehaviour
     }
 
     void Chase(){
-        transform.LookAt(player);
+        Vector3 position = new Vector3(player.position.x, transform.position.y, player.position.z);
+        transform.LookAt(position);
         agent.acceleration = 5;
         agent.speed = chaseVelocity;
         agent.destination = player.position;

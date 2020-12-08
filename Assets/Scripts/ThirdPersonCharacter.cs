@@ -105,14 +105,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void UpdateAnimator(Vector3 move)
 		{
 			// update the animator parameters
-			// m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
-			// m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
-			// m_Animator.SetBool("Crouch", m_Crouching);
-			// m_Animator.SetBool("OnGround", m_IsGrounded);
-			// if (!m_IsGrounded)
-			// {
-			// 	m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
-			// }
+			m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
+			m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
 
 			// the anim speed multiplier allows the overall speed of walking/running to be tweaked in the inspector,
 			// which affects the movement speed because of the root motion.
