@@ -32,8 +32,10 @@ public class EnemyController : MonoBehaviour
         playerDist = Vector3.Distance(player.transform.position, transform.position);
         randomPointDist = Vector3.Distance(randomPoints[currentRandomPoint].transform.position, transform.position);
 
+        print(SeeingPlayer());
         if (SeeingPlayer()) {
             if (playerDist <= attackDistance) {
+                print("attacking");
                 agent.acceleration = 0;
                 agent.speed = 0;
                 agent.velocity = Vector3.zero;
@@ -95,7 +97,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    IEnumerator FadeBlackOutSquare(float fadeSpeed = 1) {
+    IEnumerator FadeBlackOutSquare(float fadeSpeed = 0.35f) {
         Color objectColor = blackOutSquare.GetComponent<Image>().color;
         float fadeAmount;
 
