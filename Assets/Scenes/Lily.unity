@@ -4467,7 +4467,7 @@ NavMeshAgent:
   m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2.5
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -4489,6 +4489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 158214231}
   player: {fileID: 731598814}
+  playerLantern: {fileID: 2113227042}
   randomPoints:
   - {fileID: 1976009338}
   - {fileID: 1976009337}
@@ -4540,11 +4541,23 @@ MonoBehaviour:
   - {fileID: 1976009291}
   character: {fileID: 158214234}
   currentRandomPoint: 0
-  chaseDistance: 4
-  attackDistance: 2
   walkVelocity: 1
   chaseVelocity: 3
   blackOutSquare: {fileID: 1140637894}
+  freezePlayer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 731598810}
+        m_MethodName: toggleFrozen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!136 &158214233
 CapsuleCollider:
   m_ObjectHideFlags: 0

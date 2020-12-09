@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
+using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {   
     public NavMeshAgent agent;
     public Transform player;
+    public Light playerLantern;
     public Transform[] randomPoints; 
 
     public ThirdPersonCharacter character;
@@ -19,26 +21,35 @@ public class EnemyController : MonoBehaviour
     private float fieldOfView;
     public int currentRandomPoint;
 
-    public float chaseDistance, attackDistance, walkVelocity, chaseVelocity;
+    public float walkVelocity, chaseVelocity;
+    private float chaseDistance;
     public GameObject blackOutSquare;
+
+    public UnityEvent freezePlayer;
 
     void Start(){
         agent.updateRotation = false;
         currentRandomPoint = Random.Range(0, randomPoints.Length);
-        fieldOfView = 45;
+        fieldOfView = 90;
     }
 
     void Update(){
+        if (playerLantern.enabled) {
+            chaseDistance = 5f;
+        } else {
+            chaseDistance = 3f;
+        }
+
         playerDist = Vector3.Distance(player.transform.position, transform.position);
         randomPointDist = Vector3.Distance(randomPoints[currentRandomPoint].transform.position, transform.position);
 
-        print(SeeingPlayer());
+        print(agent.velocity);
         if (SeeingPlayer()) {
-            if (playerDist <= attackDistance) {
-                print("attacking");
-                agent.acceleration = 0;
-                agent.speed = 0;
-                agent.velocity = Vector3.zero;
+            if (playerDist <= chaseDistance && agent.velocity == Vector3.zero) {
+                if (!playerLantern.enabled) {
+                    playerLantern.enabled = true;
+                }
+                freezePlayer.Invoke();
                 StartCoroutine(FadeBlackOutSquare());
             }
             else if (playerDist <= chaseDistance) {
@@ -97,7 +108,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    IEnumerator FadeBlackOutSquare(float fadeSpeed = 0.35f) {
+    IEnumerator FadeBlackOutSquare(float fadeSpeed = 0.5f) {
         Color objectColor = blackOutSquare.GetComponent<Image>().color;
         float fadeAmount;
 
