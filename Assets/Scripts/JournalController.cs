@@ -11,6 +11,7 @@ public class JournalController : MonoBehaviour
 
     public Canvas canvas;
 
+    public Image note;
     public Image page1;
     public Image page2;
     public Image page3;
@@ -29,19 +30,31 @@ public class JournalController : MonoBehaviour
     }
 
     void NextPage() {
-        if(currentPage < 3) { currentPage++; }
+        if(currentPage < 4) { currentPage++; }
         else { currentPage = 1; }
 
         switch( currentPage ) {
             case 1:
+                note.enabled = true;
+                page1.enabled = false;
+                page2.enabled = false;
                 page3.enabled = false;
-                page1.enabled = true;
                 break;
             case 2:
-                page1.enabled = false;
-                page2.enabled = true;
+                note.enabled = false;
+                page1.enabled = true;
+                page2.enabled = false;
+                page3.enabled = false;
                 break;
             case 3: 
+                note.enabled = false;
+                page1.enabled = false;
+                page2.enabled = true;
+                page3.enabled = false;
+                break;
+            case 4:
+                note.enabled = false;
+                page1.enabled = false;
                 page2.enabled = false;
                 page3.enabled = true;
                 break;
