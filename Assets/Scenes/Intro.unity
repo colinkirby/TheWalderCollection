@@ -158,7 +158,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 4, y: -232}
-  m_SizeDelta: {x: 950, y: 1000}
+  m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &532255787
 MonoBehaviour:
@@ -196,13 +196,13 @@ MonoBehaviour:
     first was from a Serb by the name of\nOskar Winckler-Zucker, a shepherd out in
     Obljaj.\nThat sad town. The phone call must have been expensive.\nHis children
     are missing. Their names are Rahel and Evike.\n\nThe second: an old Romanian
-    cobbler. Reticent. His son is missing as well, a boy by the name of Janos Kulcs.
-    Janos Kulcs was arrested in August of 1912, here in Ilid\u017Ea.\nThe boy broke
+    cobbler. Reticent. His son is\nmissing as well, a boy by the name of Janos Kulcs.
+    Janos\nKulcs was arrested in August of 1912, here in Ilid\u017Ea.\nThe boy broke
     into a traveler\u2019s safe in an inn in Marijin Dvor.\n\nNothing on the siblings
     Winckler-Zucker.\nThe father says no animals are missing. Not a late \nnight
     trailing a lamb, it appears.\nWill investigate further, after a cigar.\n\nOne
     last thing: Both fathers reported hearing a\nmotorcar last night. Not common,
-    not in Obljaj\r\n-Chief Inspector Marton Hell"
+    not in Obljaj\n\n-Chief Inspector Marton Hell"
 --- !u!222 &532255788
 CanvasRenderer:
   m_ObjectHideFlags: 0
