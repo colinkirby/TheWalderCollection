@@ -158,7 +158,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 4, y: -232}
-  m_SizeDelta: {x: 800, y: 1000}
+  m_SizeDelta: {x: 950, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &532255787
 MonoBehaviour:
@@ -192,17 +192,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Tonight I received a pair of phone calls.\nThe first was from a Serb by
-    the name of Oskar\nWinckler-Zucker, a shepherd out in Obljaj. That\nsad town.
-    The phone call must have been expensive. His children are missing. Their names
-    are Rahel\nand Evike.\nThe second: an old Romanian cobbler. Reticent. His son
-    is missing as well, a boy by the name of Janos Kulcs. Janos Kulcs was arrested
-    in August of\n1912, here in Ilid\u017Ea. The boy broke into a\ntraveler\u2019s
-    safe in an inn in Marijin Dvor.\nNothing on the siblings Winckler-Zucker. The
-    \nfather says no animals are missing. Not a late \nnight trailing a lamb, it
-    appears.\nWill investigate further, after a cigar. \r\n\r\nOne last thing: Both
-    fathers reported hearing a \nmotorcar last night. Not common, not in Obljaj.\r\n\t\r\n-Chief
-    Inspector Marton Hell"
+  m_Text: "December 13th, 1913, 21:14.\n\nTonight I received a pair of phone calls.\nThe
+    first was from a Serb by the name of\nOskar Winckler-Zucker, a shepherd out in
+    Obljaj.\nThat sad town. The phone call must have been expensive.\nHis children
+    are missing. Their names are Rahel and Evike.\n\nThe second: an old Romanian
+    cobbler. Reticent. His son is missing as well, a boy by the name of Janos Kulcs.
+    Janos Kulcs was arrested in August of 1912, here in Ilid\u017Ea.\nThe boy broke
+    into a traveler\u2019s safe in an inn in Marijin Dvor.\n\nNothing on the siblings
+    Winckler-Zucker.\nThe father says no animals are missing. Not a late \nnight
+    trailing a lamb, it appears.\nWill investigate further, after a cigar.\n\nOne
+    last thing: Both fathers reported hearing a\nmotorcar last night. Not common,
+    not in Obljaj\r\n-Chief Inspector Marton Hell"
 --- !u!222 &532255788
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -331,6 +331,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a060400411977ed459823bfd5345e80c, type: 3}
   - {fileID: 8300000, guid: fcb8ea019e2cb7442aeeb54b4938008d, type: 3}
   - {fileID: 8300000, guid: da5218d2229c0f441b479bc1099547e6, type: 3}
+  - {fileID: 8300000, guid: e13d7f0fe62a95d498026128a416caba, type: 3}
+  - {fileID: 8300000, guid: f3a13f8dc8fb1ac4ab09fc3b4bc8d184, type: 3}
+  - {fileID: 8300000, guid: d5194caf47bc23542a9f09e7aa02c386, type: 3}
+  - {fileID: 8300000, guid: a6093cdb41a7c2147a4be836c5ba545e, type: 3}
+  - {fileID: 8300000, guid: 4eb829025954ce64d8bfff0603ed4020, type: 3}
 --- !u!1 &1165146572
 GameObject:
   m_ObjectHideFlags: 0
