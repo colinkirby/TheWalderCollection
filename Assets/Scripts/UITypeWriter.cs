@@ -10,7 +10,7 @@ public class UITypeWriter: MonoBehaviour
     public Text text;
     public bool playOnAwake = true;
     public float delayToStart;
-    public float delayBetweenChars = 0.05f;
+    public float delayBetweenChars = 0.0125f;
     public float delayAfterPunctuation = 0.4f;
 
     private string story;
