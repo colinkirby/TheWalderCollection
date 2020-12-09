@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 
@@ -78,5 +79,6 @@ IEnumerator PlayText()
         text.text += c;
         yield return new WaitForSeconds(delayBetweenChars);
     }
+    //FadeToScene();
 }
 }

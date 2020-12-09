@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Text;
+using UnityEngine.SceneManagement;
 using System;
 using Random=UnityEngine.Random;
 
@@ -25,6 +26,8 @@ public class UITypeWriter: MonoBehaviour
     private char charPeriod;
 
     private char charNewLine;
+    public GameObject sceneManager;
+
     public AudioClip typing;
     public AudioClip ding;
     public AudioClip[] typeOneShots;
@@ -117,5 +120,7 @@ public class UITypeWriter: MonoBehaviour
 
             //yield return new WaitForSeconds(delayBetweenChars);
         }
+        yield return new WaitForSeconds(5f);
+        sceneManager.GetComponent<SceneChanger>().FadeToScene();
     }
 }
