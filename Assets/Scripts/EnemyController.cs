@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
-using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {   
@@ -24,8 +23,6 @@ public class EnemyController : MonoBehaviour
     public float walkVelocity, chaseVelocity;
     private float chaseDistance;
     public GameObject blackOutSquare;
-
-    public UnityEvent freezePlayer;
 
     void Start(){
         agent.updateRotation = false;
@@ -49,7 +46,6 @@ public class EnemyController : MonoBehaviour
                 if (!playerLantern.enabled) {
                     playerLantern.enabled = true;
                 }
-                freezePlayer.Invoke();
                 StartCoroutine(FadeBlackOutSquare());
             }
             else if (playerDist <= chaseDistance) {

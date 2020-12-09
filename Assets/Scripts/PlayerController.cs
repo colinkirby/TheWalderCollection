@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     public float upperLimit = -50;
     public float lowerLimit = 50;
 
-
     private float verticalSpeed = 0;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
