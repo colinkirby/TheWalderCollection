@@ -398,6 +398,7 @@ MonoBehaviour:
   delayToStart: 0
   delayBetweenChars: 0.05
   delayAfterPunctuation: 0.4
+  sceneManager: {fileID: 1915070576}
   typing: {fileID: 8300000, guid: b40cd24bf62be3d4da6f521e8c490180, type: 3}
   ding: {fileID: 8300000, guid: 22e1ab5555283b74e8c12976d4ad679e, type: 3}
   typeOneShots:
