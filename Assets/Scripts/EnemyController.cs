@@ -40,7 +40,6 @@ public class EnemyController : MonoBehaviour
         playerDist = Vector3.Distance(player.transform.position, transform.position);
         randomPointDist = Vector3.Distance(randomPoints[currentRandomPoint].transform.position, transform.position);
 
-        print(agent.velocity);
         if (SeeingPlayer()) {
             if (playerDist <= chaseDistance && agent.velocity == Vector3.zero) {
                 if (!playerLantern.enabled) {
