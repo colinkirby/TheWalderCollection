@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour
     private float gravityValue = -9.81f;
     private bool groundedPlayer;
 
-
-
     // Update is called once per frame
     void Update()
     {
