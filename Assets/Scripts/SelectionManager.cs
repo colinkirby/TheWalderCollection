@@ -26,7 +26,7 @@ public class SelectionManager : MonoBehaviour
             if(selection.CompareTag(selectableTag)) {
                 DestroyPainting(selection);
             }  else if(selection.CompareTag(notSelectableTag)) {
-                IncorrectPainting();
+                IncorrectPainting(selection);
             }
             else {
                 if(canvas.enabled) {
@@ -47,8 +47,10 @@ public class SelectionManager : MonoBehaviour
         }
     }
 
-    void IncorrectPainting() {
+    void IncorrectPainting(Transform selection) {
         canvas.enabled = true;
-        print("Do something");
+        if(Input.GetKeyDown (KeyCode.E)) {
+            selection.gameObject.GetComponent<Animator>().enabled = true;
+        }
     }
 }
