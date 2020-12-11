@@ -6592,7 +6592,11 @@ MonoBehaviour:
     type: 3}
   selectableTag: Selectable
   notSelectableTag: NotSelectable
+  plaqueTag: Plaque
   canvas: {fileID: 515748137}
+  instructionLabel: {fileID: 550747673}
+  buttonLabel: {fileID: 2057441608}
+  plaque: {fileID: 0}
 --- !u!4 &230352482
 Transform:
   m_ObjectHideFlags: 0
@@ -9194,6 +9198,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &421833123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421833120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 014301d9f28cd074b872fc35a43a268f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &425655843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56831,9 +56847,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1978914992}
+  note: {fileID: 0}
   page1: {fileID: 1249720272}
   page2: {fileID: 2061150933}
   page3: {fileID: 546888163}
+  page4: {fileID: 0}
+  page5: {fileID: 0}
+  page6: {fileID: 0}
+  page1_x: {fileID: 0}
+  page2_x: {fileID: 0}
+  page3_x: {fileID: 0}
+  page4_x: {fileID: 0}
+  page5_x: {fileID: 0}
+  page6_x: {fileID: 0}
 --- !u!114 &1978914990
 MonoBehaviour:
   m_ObjectHideFlags: 0
