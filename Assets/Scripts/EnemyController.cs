@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
+using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {   
@@ -23,6 +24,9 @@ public class EnemyController : MonoBehaviour
     public float walkVelocity, chaseVelocity;
     private float chaseDistance;
     public GameObject blackOutSquare;
+    
+    [System.Serializable] public class DisableMovementEvent : UnityEvent<bool> {}
+    [SerializeField] public DisableMovementEvent disableMovementEvent;
 
     void Start(){
         agent.updateRotation = false;
@@ -42,6 +46,7 @@ public class EnemyController : MonoBehaviour
 
         if (SeeingPlayer()) {
             if (playerDist <= chaseDistance && agent.velocity == Vector3.zero) {
+                disableMovementEvent.Invoke(false);
                 if (!playerLantern.enabled) {
                     playerLantern.enabled = true;
                 }
