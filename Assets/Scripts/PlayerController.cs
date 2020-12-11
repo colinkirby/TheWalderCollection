@@ -16,12 +16,15 @@ public class PlayerController : MonoBehaviour
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
     private bool groundedPlayer;
+    private bool isInputEnabled = true;
 
     // Update is called once per frame
     void Update()
     {
-        Move();
-        Rotate();
+        if (isInputEnabled) {
+            Move();
+            Rotate();
+        }
     }
 
     void Move(){
@@ -82,5 +85,9 @@ public class PlayerController : MonoBehaviour
         }
         currentRotation.x = Mathf.Clamp(currentRotation.x, upperLimit, lowerLimit);
         cameraTransform.localRotation = Quaternion.Euler(currentRotation);
+    }
+
+    public void ToggleInput(bool enabled){
+        isInputEnabled = enabled;
     }
 }
