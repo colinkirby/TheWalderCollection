@@ -6202,36 +6202,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &219860124
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 219860125}
-  m_Layer: 0
-  m_Name: Plaque_Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &219860125
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219860124}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 793296097}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &223735811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 32e666844483d0a49bf21abf6a28ad84,
@@ -6939,6 +6909,20 @@ MonoBehaviour:
   selectableTag: Selectable
   notSelectableTag: NotSelectable
   plaqueTag: Plaque
+  selectEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1978914989}
+        m_MethodName: CrossOffPage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   canvas: {fileID: 515748137}
   instructionLabel: {fileID: 550747673}
   buttonLabel: {fileID: 2057441608}
@@ -20879,12 +20863,6 @@ Transform:
 --- !u!1 &793296096 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8416272007918961125, guid: 202f5da29fca25c46adaef64323a96a8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1256094301}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &793296097 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -3542852092398272455, guid: 202f5da29fca25c46adaef64323a96a8,
     type: 3}
   m_PrefabInstance: {fileID: 1256094301}
   m_PrefabAsset: {fileID: 0}
@@ -35306,7 +35284,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 202f5da29fca25c46adaef64323a96a8,
         type: 3}
       propertyPath: m_Name
-      value: Walder_Vorral_2
+      value: plaque
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 202f5da29fca25c46adaef64323a96a8,
         type: 3}
@@ -35321,7 +35299,7 @@ PrefabInstance:
     - target: {fileID: 8416272007918961125, guid: 202f5da29fca25c46adaef64323a96a8,
         type: 3}
       propertyPath: m_Name
-      value: Walder_Vorral_2
+      value: Cube.002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 202f5da29fca25c46adaef64323a96a8, type: 3}
@@ -60637,19 +60615,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1978914992}
-  note: {fileID: 0}
+  note: {fileID: 79071760}
   page1: {fileID: 1249720272}
   page2: {fileID: 2061150933}
   page3: {fileID: 546888163}
-  page4: {fileID: 0}
-  page5: {fileID: 0}
-  page6: {fileID: 0}
-  page1_x: {fileID: 0}
-  page2_x: {fileID: 0}
-  page3_x: {fileID: 0}
-  page4_x: {fileID: 0}
-  page5_x: {fileID: 0}
-  page6_x: {fileID: 0}
+  page4: {fileID: 2049319651}
+  page5: {fileID: 197847710}
+  page6: {fileID: 1074254636}
+  page1_x: {fileID: 21300000, guid: 83321975bb5d141abbd51638a626883d, type: 3}
+  page2_x: {fileID: 21300000, guid: 2a0113cbfe7594f86b8e0f204ae64acc, type: 3}
+  page3_x: {fileID: 21300000, guid: f58e6a31afd564146903ea51ce0f41ea, type: 3}
+  page4_x: {fileID: 21300000, guid: 6ac53c42df3ca4bf9b380644a5678a76, type: 3}
+  page5_x: {fileID: 21300000, guid: 9ecabd1729ede479f9eb27ccfb105e53, type: 3}
+  page6_x: {fileID: 21300000, guid: 2c95babd2862d43fda54a838918a07f8, type: 3}
 --- !u!114 &1978914990
 MonoBehaviour:
   m_ObjectHideFlags: 0

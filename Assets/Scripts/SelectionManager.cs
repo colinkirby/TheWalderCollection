@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class SelectionManager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] private string selectableTag = "Selectable";
     [SerializeField] private string notSelectableTag = "NotSelectable";
     [SerializeField] private string plaqueTag = "Plaque";
+
+    [System.Serializable] public class SelectEvent : UnityEvent<string> {}
+    [SerializeField] public SelectEvent selectEvent;
 
     private Sprite[] spriteArray;
 
@@ -59,6 +63,7 @@ public class SelectionManager : MonoBehaviour
         buttonLabel.GetComponent<TMP_Text>().text = "E";
         if(Input.GetKeyDown (KeyCode.E)) {
             Destroy(selection.gameObject);
+            selectEvent.Invoke(selection.name);
         }
     }
 
