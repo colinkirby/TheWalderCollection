@@ -6928,6 +6928,7 @@ MonoBehaviour:
   instructionLabel: {fileID: 550747673}
   buttonLabel: {fileID: 2057441608}
   plaque: {fileID: 225386617}
+  buttonBackground: {fileID: 78860724}
 --- !u!4 &230352482
 Transform:
   m_ObjectHideFlags: 0

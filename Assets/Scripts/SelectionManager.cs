@@ -21,6 +21,7 @@ public class SelectionManager : MonoBehaviour
     public GameObject instructionLabel;
     public GameObject buttonLabel;
     public Image plaque;
+    public Image buttonBackground;
 
     void Start() {
         spriteArray = Resources.LoadAll<Sprite>("Plaques");
@@ -61,6 +62,7 @@ public class SelectionManager : MonoBehaviour
         canvas.enabled = true;
         instructionLabel.GetComponent<TMP_Text>().text = "Take Painting";
         buttonLabel.GetComponent<TMP_Text>().text = "E";
+        buttonBackground.enabled = true;
         if(Input.GetKeyDown (KeyCode.E)) {
             Destroy(selection.gameObject);
             selectEvent.Invoke(selection.name);
@@ -71,6 +73,7 @@ public class SelectionManager : MonoBehaviour
         canvas.enabled = true;
         instructionLabel.GetComponent<TMP_Text>().text = "Take Painting";
         buttonLabel.GetComponent<TMP_Text>().text = "E";
+        buttonBackground.enabled = true;
     }
 
     void TogglePlaque(string name) {
@@ -78,6 +81,7 @@ public class SelectionManager : MonoBehaviour
             canvas.enabled = true;
             instructionLabel.GetComponent<TMP_Text>().text = "";
             buttonLabel.GetComponent<TMP_Text>().text = "";
+            buttonBackground.enabled = false;
 
             if (Input.GetMouseButtonDown(0)) {
                 foreach(var sprite in spriteArray){
