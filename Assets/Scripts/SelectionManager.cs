@@ -77,7 +77,6 @@ public class SelectionManager : MonoBehaviour
     }
 
     void TogglePlaque(string name) {
-        print(name);
         if (Input.GetMouseButtonDown(0)) {
             canvas.enabled = true;
             instructionLabel.GetComponent<TMP_Text>().text = "";
