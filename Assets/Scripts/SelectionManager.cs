@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class SelectionManager : MonoBehaviour
 {
@@ -11,12 +12,16 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] private string notSelectableTag = "NotSelectable";
     [SerializeField] private string plaqueTag = "Plaque";
 
+    [System.Serializable] public class SelectEvent : UnityEvent<string> {}
+    [SerializeField] public SelectEvent selectEvent;
+
     private Sprite[] spriteArray;
 
     public Canvas canvas;
     public GameObject instructionLabel;
     public GameObject buttonLabel;
     public Image plaque;
+    public Image buttonBackground;
 
     void Start() {
         spriteArray = Resources.LoadAll<Sprite>("Plaques");
@@ -38,7 +43,7 @@ public class SelectionManager : MonoBehaviour
             } else if(selection.CompareTag(plaqueTag)) {
                 TogglePlaque(selection.name);
             } else if(selection.CompareTag(notSelectableTag)) {
-                IncorrectPainting(selection);
+                IncorrectPainting();
             } else {
                 if(canvas.enabled) {
                     canvas.enabled = false;
@@ -57,18 +62,18 @@ public class SelectionManager : MonoBehaviour
         canvas.enabled = true;
         instructionLabel.GetComponent<TMP_Text>().text = "Take Painting";
         buttonLabel.GetComponent<TMP_Text>().text = "E";
+        buttonBackground.enabled = true;
         if(Input.GetKeyDown (KeyCode.E)) {
             Destroy(selection.gameObject);
+            selectEvent.Invoke(selection.name);
         }
     }
 
-    void IncorrectPainting(Transform selection) {
+    void IncorrectPainting() {
         canvas.enabled = true;
         instructionLabel.GetComponent<TMP_Text>().text = "Take Painting";
         buttonLabel.GetComponent<TMP_Text>().text = "E";
-        if(Input.GetKeyDown (KeyCode.E)) {
-            selection.gameObject.GetComponent<Animator>().enabled = true;
-        }
+        buttonBackground.enabled = true;
     }
 
     void TogglePlaque(string name) {
@@ -76,6 +81,7 @@ public class SelectionManager : MonoBehaviour
             canvas.enabled = true;
             instructionLabel.GetComponent<TMP_Text>().text = "";
             buttonLabel.GetComponent<TMP_Text>().text = "";
+            buttonBackground.enabled = false;
 
             if (Input.GetMouseButtonDown(0)) {
                 foreach(var sprite in spriteArray){
