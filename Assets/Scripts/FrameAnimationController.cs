@@ -7,9 +7,13 @@ public class FrameAnimationController : MonoBehaviour
     // Start is called before the first frame update
     public Animator anim;
     public Transform transform;
+    public GameObject child;
+
     public void Start() {
         anim = GetComponent<Animator>();
         transform = GetComponent<Transform>();
+        child = transform.Find("bells").gameObject;
+
     }
 
     public void PlayFrameAnim() {
@@ -34,7 +38,17 @@ public class FrameAnimationController : MonoBehaviour
                 anim.Play(animName);
                 break;
         }
+        PlayPaintingSounds();
+
         
+    }
+
+    private void PlayPaintingSounds() {
+        // bells
+        child.GetComponent<AudioSource>().Play();
+
+        
+
     }
 
 

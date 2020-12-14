@@ -6,6 +6,7 @@ public class MonsterSoundController : MonoBehaviour
 {
     public AudioClip[] clips;
     public AudioClip death;
+    private bool deathPlayed = false;
 
     private AudioSource audioSource;
     private void Awake() {
@@ -13,14 +14,19 @@ public class MonsterSoundController : MonoBehaviour
     }
 
     private void Step() {
-        audioSource.Stop();
-        AudioClip clip = GetRandomClip();
-        audioSource.PlayOneShot(clip);
+        if(!deathPlayed) {
+            audioSource.Stop();
+            AudioClip clip = GetRandomClip();
+            audioSource.PlayOneShot(clip);
+        }
     }
 
-    private void Death() {
-        audioSource.Stop();
-        audioSource.PlayOneShot(death);
+    public void Death() {
+        if(!deathPlayed) {
+            audioSource.Stop();
+            audioSource.PlayOneShot(death);
+            deathPlayed = true;
+        }
     }
 
     private AudioClip GetRandomClip() {
