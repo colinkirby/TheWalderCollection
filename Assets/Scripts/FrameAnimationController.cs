@@ -6,9 +6,13 @@ public class FrameAnimationController : MonoBehaviour
 {
     public Animator anim;
     public Transform pos;
+    public GameObject child;
+
     public void Start() {
         anim = GetComponent<Animator>();
         pos = GetComponent<Transform>();
+        child = pos.Find("bells").gameObject;
+
     }
 
     public void PlayFrameAnim() {
@@ -33,7 +37,17 @@ public class FrameAnimationController : MonoBehaviour
                 anim.Play(animName);
                 break;
         }
+        PlayPaintingSounds();
+
         
+    }
+
+    private void PlayPaintingSounds() {
+        // bells
+        child.GetComponent<AudioSource>().Play();
+
+        
+
     }
 
 
