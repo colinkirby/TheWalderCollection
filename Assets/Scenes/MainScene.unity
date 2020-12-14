@@ -50412,6 +50412,11 @@ PrefabInstance:
       propertyPath: disableMovementEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1446700566098796182, guid: ab2cf954ad3054cf0bce626e64224002,
+        type: 3}
+      propertyPath: anchorCanvas
+      value: 
+      objectReference: {fileID: 1174282830}
     - target: {fileID: 1788737941032379941, guid: ab2cf954ad3054cf0bce626e64224002,
         type: 3}
       propertyPath: m_Name
@@ -61987,7 +61992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1804295012
 Transform:
   m_ObjectHideFlags: 0
