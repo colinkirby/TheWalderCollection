@@ -24,6 +24,8 @@ public class EnemyController : MonoBehaviour
     public float walkVelocity, chaseVelocity;
     private float chaseDistance;
     public GameObject blackOutSquare;
+
+    public Canvas anchorCanvas;
     
     [System.Serializable] public class DisableMovementEvent : UnityEvent<bool> {}
     [SerializeField] public DisableMovementEvent disableMovementEvent;
@@ -50,6 +52,7 @@ public class EnemyController : MonoBehaviour
                 if (!playerLantern.enabled) {
                     playerLantern.enabled = true;
                 }
+                anchorCanvas.enabled = false;
                 StartCoroutine(FadeBlackOutSquare());
             }
             else if (playerDist <= chaseDistance) {
