@@ -43,7 +43,7 @@ public class SelectionManager : MonoBehaviour
             } else if(selection.CompareTag(plaqueTag)) {
                 TogglePlaque(selection.name);
             } else if(selection.CompareTag(notSelectableTag)) {
-                IncorrectPainting();
+                IncorrectPainting(selection);
             } else {
                 if(canvas.enabled) {
                     canvas.enabled = false;
@@ -69,11 +69,14 @@ public class SelectionManager : MonoBehaviour
         }
     }
 
-    void IncorrectPainting() {
+    void IncorrectPainting(Transform selection) {
         canvas.enabled = true;
         instructionLabel.GetComponent<TMP_Text>().text = "Take Painting";
         buttonLabel.GetComponent<TMP_Text>().text = "E";
         buttonBackground.enabled = true;
+        if(Input.GetKeyDown (KeyCode.E)) {
+            selection.gameObject.GetComponent<FrameAnimationController>().PlayFrameAnim();
+        }
     }
 
     void TogglePlaque(string name) {
