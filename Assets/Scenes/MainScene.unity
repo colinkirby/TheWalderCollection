@@ -2415,7 +2415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &33344255
 GameObject:
@@ -3274,7 +3274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &63326547
 GameObject:
@@ -8937,7 +8937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &261320894
 GameObject:
@@ -10458,7 +10458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!4 &318465496 stripped
 Transform:
@@ -15634,7 +15634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &515542401
 GameObject:
@@ -16419,7 +16419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &546888161
 GameObject:
@@ -17967,7 +17967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &572359608
 GameObject:
@@ -23958,7 +23958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &772869250
 GameObject:
@@ -24292,7 +24292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &779636111
 GameObject:
@@ -25832,7 +25832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &830787407
 GameObject:
@@ -26531,7 +26531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!4 &856059411 stripped
 Transform:
@@ -26809,7 +26809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &869136493 stripped
 GameObject:
@@ -29019,7 +29019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1001 &886832853
 PrefabInstance:
@@ -31071,7 +31071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1001 &964313787
 PrefabInstance:
@@ -32158,7 +32158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &990707069
 GameObject:
@@ -33952,7 +33952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &1040975078 stripped
 GameObject:
@@ -34011,7 +34011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &1044813887
 GameObject:
@@ -40253,7 +40253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &1164326249 stripped
 GameObject:
@@ -40867,7 +40867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1001 &1193925080
 PrefabInstance:
@@ -41622,6 +41622,75 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &1209433479
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1511071962}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 27f1218a7c24972499a9e606bbc2ed18,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27f1218a7c24972499a9e606bbc2ed18,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.584
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27f1218a7c24972499a9e606bbc2ed18,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.446
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27f1218a7c24972499a9e606bbc2ed18,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.49991274
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27f1218a7c24972499a9e606bbc2ed18,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.50008726
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27f1218a7c24972499a9e606bbc2ed18,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.49991274
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27f1218a7c24972499a9e606bbc2ed18,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.50008726
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27f1218a7c24972499a9e606bbc2ed18,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27f1218a7c24972499a9e606bbc2ed18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27f1218a7c24972499a9e606bbc2ed18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 27f1218a7c24972499a9e606bbc2ed18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 27f1218a7c24972499a9e606bbc2ed18,
+        type: 3}
+      propertyPath: m_Name
+      value: bells
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 27f1218a7c24972499a9e606bbc2ed18, type: 3}
 --- !u!4 &1209498049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5331518ab405dc34a8b7a0290de61938,
@@ -41778,7 +41847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!4 &1216434937 stripped
 Transform:
@@ -42374,7 +42443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1001 &1241158424
 PrefabInstance:
@@ -43259,7 +43328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &1255158613
 GameObject:
@@ -44448,7 +44517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!4 &1290348628 stripped
 Transform:
@@ -48839,7 +48908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1001 &1436947679
 PrefabInstance:
@@ -51730,7 +51799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!65 &1511071964
 BoxCollider:
@@ -51821,7 +51890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1001 &1518320764
 PrefabInstance:
@@ -52146,7 +52215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &1520872806
 GameObject:
@@ -53886,7 +53955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &1541864650
 GameObject:
@@ -58542,6 +58611,108 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630243460}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1641225337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 27f1218a7c24972499a9e606bbc2ed18,
+    type: 3}
+  m_PrefabInstance: {fileID: 1209433479}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1641225339
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641225337}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d21b24485c39b4f45be5c10ed14be28d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1643561829
 GameObject:
   m_ObjectHideFlags: 0
@@ -60634,7 +60805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1001 &1694641354
 PrefabInstance:
@@ -62879,7 +63050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!65 &1728612504
 BoxCollider:
@@ -70353,7 +70524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &1934562254
 GameObject:
@@ -70558,7 +70729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1001 &1936523158
 PrefabInstance:
@@ -71580,7 +71751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1001 &1970283305
 PrefabInstance:
@@ -71820,7 +71991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!1 &1975043231 stripped
 GameObject:
@@ -74041,7 +74212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  transform: {fileID: 0}
+  pos: {fileID: 0}
   child: {fileID: 0}
 --- !u!95 &2023463444
 Animator:
