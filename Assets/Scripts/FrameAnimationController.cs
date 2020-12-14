@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FrameAnimationController : MonoBehaviour
 {
+    // Start is called before the first frame update
     public Animator anim;
     public Transform pos;
     public GameObject child;
@@ -49,6 +50,4 @@ public class FrameAnimationController : MonoBehaviour
         
 
     }
-
-
 }
