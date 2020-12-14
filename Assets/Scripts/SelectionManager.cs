@@ -63,7 +63,7 @@ public class SelectionManager : MonoBehaviour
         instructionLabel.GetComponent<TMP_Text>().text = "Take Painting";
         buttonLabel.GetComponent<TMP_Text>().text = "E";
         buttonBackground.enabled = true;
-        if(Input.GetKeyDown (KeyCode.E)) {
+        if(Input.GetKeyDown(KeyCode.E)) {
             Destroy(selection.gameObject);
             selectEvent.Invoke(selection.name);
         }
@@ -74,25 +74,27 @@ public class SelectionManager : MonoBehaviour
         instructionLabel.GetComponent<TMP_Text>().text = "Take Painting";
         buttonLabel.GetComponent<TMP_Text>().text = "E";
         buttonBackground.enabled = true;
-        if(Input.GetKeyDown (KeyCode.E)) {
+        if(Input.GetKeyDown(KeyCode.E)) {
             selection.gameObject.GetComponent<FrameAnimationController>().PlayFrameAnim();
         }
     }
 
     void TogglePlaque(string name) {
-        canvas.enabled = true;
-        buttonLabel.GetComponent<TMP_Text>().text = "";
-        buttonBackground.enabled = false;
-        instructionLabel.GetComponent<TMP_Text>().text = "Click to Read";
+        if(plaque.enabled == false){
+            canvas.enabled = true;
+            buttonLabel.GetComponent<TMP_Text>().text = "E";
+            buttonBackground.enabled = false;
+            instructionLabel.GetComponent<TMP_Text>().text = "Click to Read";
+        }
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetKeyDown(KeyCode.E)) {
             instructionLabel.GetComponent<TMP_Text>().text = "";
-            if (Input.GetMouseButtonDown(0)) {
-                foreach(var sprite in spriteArray){
-                    if (name == sprite.name) {
-                        plaque.GetComponent<Image>().sprite = sprite;
-                        plaque.enabled = !plaque.enabled;
-                    }
+            buttonLabel.GetComponent<TMP_Text>().text = "";
+            buttonBackground.enabled = false;
+            foreach(var sprite in spriteArray){
+                if (name == sprite.name) {
+                    plaque.GetComponent<Image>().sprite = sprite;
+                    plaque.enabled = !plaque.enabled;
                 }
             }
         }

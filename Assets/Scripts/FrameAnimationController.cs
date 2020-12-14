@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class FrameAnimationController : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Animator anim;
-    public Transform transform;
+    public Transform pos;
     public void Start() {
         anim = GetComponent<Animator>();
-        transform = GetComponent<Transform>();
+        pos = GetComponent<Transform>();
     }
 
     public void PlayFrameAnim() {
-        float wallAngleY = transform.rotation.eulerAngles.y;
+        float wallAngleY = pos.rotation.eulerAngles.y;
         int rounded = Mathf.RoundToInt(wallAngleY);
         string animName = "none";
         switch(rounded) {
