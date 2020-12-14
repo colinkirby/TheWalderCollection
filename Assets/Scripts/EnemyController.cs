@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     public Transform[] randomPoints; 
 
     public ThirdPersonCharacter character;
+    public MonsterSoundController monsterSounds;
 
     private float playerDist, randomPointDist;
     private float fieldOfView;
@@ -112,6 +113,7 @@ public class EnemyController : MonoBehaviour
     }
 
     IEnumerator FadeBlackOutSquare(float fadeSpeed = 0.5f) {
+        monsterSounds.Death();
         Color objectColor = blackOutSquare.GetComponent<Image>().color;
         float fadeAmount;
 
