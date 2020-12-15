@@ -27,6 +27,9 @@ public class EnemyController : MonoBehaviour
     public GameObject blackOutSquare;
 
     public Canvas anchorCanvas;
+
+    private bool findBells = false;
+    private Transform bellsPos;
     
     [System.Serializable] public class DisableMovementEvent : UnityEvent<bool> {}
     [SerializeField] public DisableMovementEvent disableMovementEvent;
@@ -58,7 +61,11 @@ public class EnemyController : MonoBehaviour
             }
             else if (playerDist <= chaseDistance) {
                 Chase();
-            } else {
+            } 
+            else if (findBells) {
+                FindBells();
+            }
+            else {
                 Walk();
             }
         } else {
@@ -89,7 +96,7 @@ public class EnemyController : MonoBehaviour
     }
 
     void Walk(){
-        agent.acceleration = 2;
+        agent.acceleration = 1;
         agent.speed = walkVelocity;
         agent.destination = randomPoints[currentRandomPoint].position;
         if (agent.remainingDistance > agent.stoppingDistance) {
@@ -102,13 +109,25 @@ public class EnemyController : MonoBehaviour
     void Chase(){
         Vector3 position = new Vector3(player.position.x, transform.position.y, player.position.z);
         transform.LookAt(position);
-        agent.acceleration = 5;
+        agent.acceleration = 4;
         agent.speed = chaseVelocity;
         agent.destination = player.position;
         if (agent.remainingDistance > agent.stoppingDistance) {
            character.Move(agent.desiredVelocity, false, false);
         } else {
             character.Move(Vector3.zero, false, false);
+        }
+    }
+
+    void FindBells(){
+        agent.acceleration = 4;
+        agent.speed = chaseVelocity;
+        agent.destination = bellsPos.position;
+        if (agent.remainingDistance > agent.stoppingDistance) {
+           character.Move(agent.desiredVelocity, false, false);
+        } else {
+            character.Move(Vector3.zero, false, false);
+            findBells = false;
         }
     }
 
@@ -125,5 +144,10 @@ public class EnemyController : MonoBehaviour
             yield return null; 
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void HearBells(Transform pos) {
+        bellsPos = pos; 
+        findBells = true;
     }
 }

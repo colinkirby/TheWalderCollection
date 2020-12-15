@@ -15,6 +15,9 @@ public class SelectionManager : MonoBehaviour
     [System.Serializable] public class SelectEvent : UnityEvent<string> {}
     [SerializeField] public SelectEvent selectEvent;
 
+    [System.Serializable] public class BellsEvent : UnityEvent<Transform> {}
+    [SerializeField] public BellsEvent bellsEvent;
+
     private Sprite[] spriteArray;
 
     public Canvas canvas;
@@ -76,6 +79,7 @@ public class SelectionManager : MonoBehaviour
         buttonBackground.enabled = true;
         if(Input.GetKeyDown(KeyCode.E)) {
             selection.gameObject.GetComponent<FrameAnimationController>().PlayFrameAnim();
+            bellsEvent.Invoke(selection);
         }
     }
 
