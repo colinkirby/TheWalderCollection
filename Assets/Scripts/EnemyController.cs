@@ -73,6 +73,9 @@ public class EnemyController : MonoBehaviour
                 Vector3 position = new Vector3(player.position.x, transform.position.y, player.position.z);
                 transform.LookAt(position);
             } 
+            else if (findBells) {
+                FindBells();
+            }
             else {
                 Walk();
             }
