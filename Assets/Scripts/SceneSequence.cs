@@ -13,6 +13,7 @@ public class SceneSequence : MonoBehaviour
     public GameObject canvas1;
     public GameObject canvas2;
 
+    public GameObject canvas3;
     public Transform pos;
 
     private Animator cam1Anim;
@@ -20,6 +21,8 @@ public class SceneSequence : MonoBehaviour
     private Animator cam2Anim;
 
     public Animator carAnim;
+
+    public Animator fadeIn;
 
 
 
@@ -31,6 +34,7 @@ public class SceneSequence : MonoBehaviour
 
         cam1Anim = pos.Find("SceneCamera1").GetComponent<Animator>();
         cam2Anim = pos.Find("SceneCamera2").GetComponent<Animator>();
+        fadeIn = canvas3.GetComponent<Animator>();
         carAnim = car.GetComponent<Animator>();
 
     }
@@ -48,6 +52,7 @@ public class SceneSequence : MonoBehaviour
         canvas2.SetActive(false);
         cam1.enabled = true;
         mainCamera.enabled = false;
+        fadeIn.Play("FadeIn2");
         cam1Anim.Play("cam1");
         carAnim.Play("car");
         yield return new WaitForSeconds(8);

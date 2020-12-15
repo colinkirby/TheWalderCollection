@@ -17,13 +17,16 @@ public class SceneChanger : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.P)) {
             sceneSequenceManager.GetComponent<SceneSequence>().Play();
+
         }
     }
 
     public void FadeToScene() {
         animator.SetTrigger("FadeOut");
+        
     }
 
+    
     public void OnFadeComplete() {
         SceneManager.LoadScene("MainScene");
     }
