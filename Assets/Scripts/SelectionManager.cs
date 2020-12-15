@@ -11,6 +11,9 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] private string selectableTag = "Selectable";
     [SerializeField] private string notSelectableTag = "NotSelectable";
     [SerializeField] private string plaqueTag = "Plaque";
+    [SerializeField] private string gramophoneTag = "Gramophone";
+    [SerializeField] private string gramophoneTriggerTag = "SelectableGramophoneTrigger";
+
 
     [System.Serializable] public class SelectEvent : UnityEvent<string> {}
     [SerializeField] public SelectEvent selectEvent;
@@ -23,6 +26,8 @@ public class SelectionManager : MonoBehaviour
     public Canvas canvas;
     public GameObject instructionLabel;
     public GameObject buttonLabel;
+
+    public GameObject gramophone;
     public Image plaque;
     public Image buttonBackground;
 
@@ -42,12 +47,17 @@ public class SelectionManager : MonoBehaviour
             var selection = hit.transform;
             
             if(selection.CompareTag(selectableTag)) {
-                DestroyPainting(selection);
+                DestroyPainting(selection, false);
             } else if(selection.CompareTag(plaqueTag)) {
                 TogglePlaque(selection.name);
             } else if(selection.CompareTag(notSelectableTag)) {
                 IncorrectPainting(selection);
-            } else {
+            } else if(selection.CompareTag(gramophoneTag)) {
+                StopGramophone(selection);
+            } else if(selection.CompareTag(gramophoneTriggerTag)) {
+                DestroyPainting(selection, true);
+            }
+            else {
                 if(canvas.enabled) {
                     canvas.enabled = false;
                     plaque.enabled = false;
@@ -61,12 +71,16 @@ public class SelectionManager : MonoBehaviour
         }
     }
 
-    void DestroyPainting(Transform selection) {
+
+    void DestroyPainting(Transform selection, bool gramophoneTrigger) {
         canvas.enabled = true;
         instructionLabel.GetComponent<TMP_Text>().text = "Take Painting";
         buttonLabel.GetComponent<TMP_Text>().text = "E";
         buttonBackground.enabled = true;
         if(Input.GetKeyDown(KeyCode.E)) {
+            if(gramophoneTrigger) {
+                gramophone.GetComponent<GramophoneController>().Play();
+            }
             Destroy(selection.gameObject);
             selectEvent.Invoke(selection.name);
         }
@@ -102,5 +116,24 @@ public class SelectionManager : MonoBehaviour
                 }
             }
         }
+    }
+
+
+    void StopGramophone(Transform selection) {
+        GramophoneController gramophoneController = gramophone.GetComponent<GramophoneController>();
+        if(gramophoneController.IsPlaying()) {
+            canvas.enabled = true;
+            buttonLabel.GetComponent<TMP_Text>().text = "E";
+            buttonBackground.enabled = false;
+            instructionLabel.GetComponent<TMP_Text>().text = "Turn Off Music";
+
+            if (Input.GetKeyDown(KeyCode.E)) {
+                instructionLabel.GetComponent<TMP_Text>().text = "";
+                buttonLabel.GetComponent<TMP_Text>().text = "";
+                buttonBackground.enabled = false;
+                gramophoneController.Stop();
+            }
+        }
+
     }
 }

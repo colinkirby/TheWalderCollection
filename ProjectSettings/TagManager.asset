@@ -8,6 +8,8 @@ TagManager:
   - NavPoint
   - NotSelectable
   - Plaque
+  - Gramophone
+  - SelectableGramophoneTrigger
   layers:
   - Default
   - TransparentFX
