@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class GramophoneController : MonoBehaviour
 {
-    AudioSource audio;
+    AudioSource gramAudio;
 
     private bool isPlaying = false;
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        gramAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     public void Play() {
-        audio.Play();
+        gramAudio.Play();
         Invoke("EnableDisabling", 5);
 
     }
 
     public void Stop() {
-        audio.Stop();
+        gramAudio.Stop();
         isPlaying = false;
     }
 

@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class JournalController : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    // Update is called once per frame
-
     public Canvas canvas;
 
     public Image note;
@@ -16,10 +13,12 @@ public class JournalController : MonoBehaviour
     public Sprite page1_x, page2_x, page3_x, page4_x, page5_x, page6_x;
 
     private int currentPage = 1;
+    private int foundPaintings = 0;
 
     private Dictionary<string, Image> pages;
-
     private Dictionary<string, Sprite> pages_x;
+
+    public UnityEvent winEvent;
 
     void Start() {
         pages = new Dictionary<string, Image>(){
@@ -124,6 +123,11 @@ public class JournalController : MonoBehaviour
     }
 
     public void CrossOffPage(string page) {
+        foundPaintings++;
+        if (foundPaintings >= 6) {
+            print("you win!");
+            winEvent.Invoke(); // this will be a scene reload to the end scene 
+        }
         Image currPage = pages[page];
         Sprite newPage = pages_x[page];
         currPage.GetComponent<Image>().sprite = newPage;

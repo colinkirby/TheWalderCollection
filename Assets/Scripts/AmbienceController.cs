@@ -32,7 +32,5 @@ public class AmbienceController : MonoBehaviour
         float val = (100f - distance) / 100f;
         val = (val * val) / 2;
         audioSource.volume = val;
-        print(val);
-
     }
 }

@@ -6,8 +6,6 @@ using UnityEngine.Events;
 
 public class SceneChanger : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public Animator animator;
     public GameObject sceneSequenceManager;
 

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class FrameAnimationController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Animator anim;
-    public Transform pos;
-    public GameObject child;
+    private Animator anim;
+    private Transform pos;
+    private GameObject child;
 
     public void Start() {
         anim = GetComponent<Animator>();
@@ -39,13 +38,10 @@ public class FrameAnimationController : MonoBehaviour
                 break;
         }
         PlayPaintingSounds();
-
-        
     }
 
     private void PlayPaintingSounds() {
         // bells
         child.GetComponent<AudioSource>().Play();
-
     }
 }
