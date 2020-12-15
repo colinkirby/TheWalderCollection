@@ -8009,6 +8009,8 @@ MonoBehaviour:
   selectableTag: Selectable
   notSelectableTag: NotSelectable
   plaqueTag: Plaque
+  gramophoneTag: Gramophone
+  gramophoneTriggerTag: SelectableGramophoneTrigger
   selectEvent:
     m_PersistentCalls:
       m_Calls:
@@ -8026,6 +8028,7 @@ MonoBehaviour:
   canvas: {fileID: 515748137}
   instructionLabel: {fileID: 550747673}
   buttonLabel: {fileID: 2057441608}
+  gramophone: {fileID: 472033551}
   plaque: {fileID: 225386617}
   buttonBackground: {fileID: 78860724}
 --- !u!4 &230352482
@@ -14866,6 +14869,133 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ae636ccc652c0418aa2b45ef8a83f0, type: 3}
+--- !u!1 &472033551 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fa0ca7589424288448bee028efa81277,
+    type: 3}
+  m_PrefabInstance: {fileID: 1852879225}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &472033552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472033551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ce6281343b1d14dbb24dd6e3ab5d6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &472033553
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472033551}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: de98bb8839cda43afbe7d7e3a95ea67e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!65 &472033556
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472033551}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005, y: 0.004999999, z: 0.1}
+  m_Center: {x: 0, y: -0.000000007450581, z: -0.0000000037252903}
 --- !u!1 &473858745
 GameObject:
   m_ObjectHideFlags: 0
@@ -55115,7 +55245,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b59b392fa864c3b48ac5f282f2c92fcc,
         type: 3}
       propertyPath: m_TagString
-      value: Selectable
+      value: SelectableGramophoneTrigger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b59b392fa864c3b48ac5f282f2c92fcc, type: 3}
@@ -67641,6 +67771,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: gramophone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fa0ca7589424288448bee028efa81277,
+        type: 3}
+      propertyPath: m_TagString
+      value: Gramophone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa0ca7589424288448bee028efa81277, type: 3}
 --- !u!1 &1854481238
@@ -77778,8 +77913,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
-  m_Range: 20
+  m_Intensity: 2.5
+  m_Range: 18
   m_SpotAngle: 106
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

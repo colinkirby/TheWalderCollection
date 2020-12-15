@@ -30,9 +30,9 @@ public class AmbienceController : MonoBehaviour
         if(distance > 100f) { distance = 100f; }
 
         float val = (100f - distance) / 100f;
-        val *= val;
+        val = (val * val) / 2;
         audioSource.volume = val;
-        
+        print(val);
 
     }
 }
