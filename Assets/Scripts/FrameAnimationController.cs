@@ -47,7 +47,5 @@ public class FrameAnimationController : MonoBehaviour
         // bells
         child.GetComponent<AudioSource>().Play();
 
-        
-
     }
 }
