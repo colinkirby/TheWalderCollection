@@ -20,10 +20,9 @@ public class SceneChanger : MonoBehaviour
     }
 
     public void FadeToScene() {
-        animator.SetTrigger("FadeOut");
-        
+        //animator.SetTrigger("FadeOut");
+        sceneSequenceManager.GetComponent<SceneSequence>().Play();     
     }
-
     
     public void OnFadeComplete() {
         SceneManager.LoadScene("MainScene");
