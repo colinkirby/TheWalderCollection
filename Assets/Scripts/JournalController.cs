@@ -19,6 +19,13 @@ public class JournalController : MonoBehaviour
     private Dictionary<string, Sprite> pages_x;
 
     public UnityEvent winEvent;
+    public UnityEvent openJournalEvent;
+    public UnityEvent flipJournalEvent;
+    public UnityEvent closeJournalEvent;
+
+    private bool openedJournal = false;
+    private bool flippedJournal = false;
+    private bool closedJournal = false;
 
     void Start() {
         pages = new Dictionary<string, Image>(){
@@ -44,10 +51,22 @@ public class JournalController : MonoBehaviour
     {
         if (Input.GetKeyUp (KeyCode.Q)) {
             canvas.enabled = !canvas.enabled;
+            if (!openedJournal) {
+                openJournalEvent.Invoke();
+                openedJournal = true;
+            } 
+            else if (!closedJournal) {
+                closeJournalEvent.Invoke();
+                closedJournal = true;
+            }
         }
 
         if(Input.GetKeyUp (KeyCode.Tab) && canvas.enabled) {
             NextPage();
+            if (!flippedJournal) {
+                flipJournalEvent.Invoke();
+                flippedJournal = true;
+            }
         }
     }
 

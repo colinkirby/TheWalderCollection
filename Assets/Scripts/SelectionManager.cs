@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using static FirstRunDetector;
 
 public class SelectionManager : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] private string plaqueTag = "Plaque";
     [SerializeField] private string gramophoneTag = "Gramophone";
     [SerializeField] private string gramophoneTriggerTag = "SelectableGramophoneTrigger";
-
 
     [System.Serializable] public class SelectEvent : UnityEvent<string> {}
     [SerializeField] public SelectEvent selectEvent;
@@ -31,6 +31,8 @@ public class SelectionManager : MonoBehaviour
     public Image plaque;
     public Image buttonBackground;
 
+    private bool tutorialDone = false;
+
     void Start() {
         spriteArray = Resources.LoadAll<Sprite>("Plaques");
     }
@@ -41,32 +43,34 @@ public class SelectionManager : MonoBehaviour
     }
 
     void RayCastObject() {
-        var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2f, Screen.height/2f, 0f));
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 3)) {
-            var selection = hit.transform;
-            
-            if(selection.CompareTag(selectableTag)) {
-                DestroyPainting(selection, false);
-            } else if(selection.CompareTag(plaqueTag)) {
-                TogglePlaque(selection.name);
-            } else if(selection.CompareTag(notSelectableTag)) {
-                IncorrectPainting(selection);
-            } else if(selection.CompareTag(gramophoneTag)) {
-                StopGramophone(selection);
-            } else if(selection.CompareTag(gramophoneTriggerTag)) {
-                DestroyPainting(selection, true);
-            }
-            else {
+        if (tutorialDone || !FirstRunDetector.firstRun) {
+            var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2f, Screen.height/2f, 0f));
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 3)) {
+                var selection = hit.transform;
+                
+                if(selection.CompareTag(selectableTag)) {
+                    DestroyPainting(selection, false);
+                } else if(selection.CompareTag(plaqueTag)) {
+                    TogglePlaque(selection.name);
+                } else if(selection.CompareTag(notSelectableTag)) {
+                    IncorrectPainting(selection);
+                } else if(selection.CompareTag(gramophoneTag)) {
+                    StopGramophone(selection);
+                } else if(selection.CompareTag(gramophoneTriggerTag)) {
+                    DestroyPainting(selection, true);
+                }
+                else {
+                    if(canvas.enabled) {
+                        canvas.enabled = false;
+                        plaque.enabled = false;
+                    }
+                }
+            } else {
                 if(canvas.enabled) {
                     canvas.enabled = false;
                     plaque.enabled = false;
                 }
-            }
-        } else {
-            if(canvas.enabled) {
-                canvas.enabled = false;
-                plaque.enabled = false;
             }
         }
     }
@@ -134,6 +138,9 @@ public class SelectionManager : MonoBehaviour
                 gramophoneController.Stop();
             }
         }
+    }
 
+    public void EndTutorial() {
+        tutorialDone = true;
     }
 }
