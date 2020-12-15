@@ -462,9 +462,6 @@ MonoBehaviour:
   canvas2: {fileID: 848859620}
   titleCanvas: {fileID: 1181231799}
   canvas3: {fileID: 1834215994}
-  pos: {fileID: 0}
-  carAnim: {fileID: 0}
-  fadeIn: {fileID: 0}
 --- !u!4 &153935158
 Transform:
   m_ObjectHideFlags: 0
