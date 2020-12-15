@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
     private bool isInputEnabled = true;
 
-    // Update is called once per frame
     void Update()
     {
         if (isInputEnabled) {

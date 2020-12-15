@@ -15972,6 +15972,7 @@ GameObject:
   - component: {fileID: 515748137}
   - component: {fileID: 515748136}
   - component: {fileID: 515748135}
+  - component: {fileID: 515748138}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -16061,6 +16062,36 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &515748138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515748133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15125a0c545844797bd6fe593db2831a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 515748137}
+  instructionLabel: {fileID: 550747673}
+  buttonLabel: {fileID: 2057441608}
+  buttonBackground: {fileID: 78860724}
+  endTutorialEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 230352481}
+        m_MethodName: EndTutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &518544081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 32e666844483d0a49bf21abf6a28ad84,
@@ -16655,7 +16686,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: -36.6}
+  m_AnchoredPosition: {x: 19.8, y: -35.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &550747675
@@ -72460,6 +72491,48 @@ MonoBehaviour:
   winEvent:
     m_PersistentCalls:
       m_Calls: []
+  openJournalEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 515748138}
+        m_MethodName: LookAtJournal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  flipJournalEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 515748138}
+        m_MethodName: FlipThroughJournal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  closeJournalEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 515748138}
+        m_MethodName: PutAwayJournal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1978914990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77835,6 +77908,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dce50a80af25c4897ce56e55436dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnOnLanternEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 515748138}
+        m_MethodName: UseLantern
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!108 &2113227042
 Light:
   m_ObjectHideFlags: 0
