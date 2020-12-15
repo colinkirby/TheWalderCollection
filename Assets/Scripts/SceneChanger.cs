@@ -5,12 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public Animator animator;
  
-
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetMouseButtonDown(0)) {
