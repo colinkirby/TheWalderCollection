@@ -27009,7 +27009,7 @@ Transform:
   m_GameObject: {fileID: 872772360}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.034, y: 0, z: -0}
-  m_LocalScale: {x: 0.45, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.17264515, y: 0.20995685, z: 0.3836559}
   m_Children: []
   m_Father: {fileID: 868690124}
   m_RootOrder: 3
@@ -27053,7 +27053,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 136e1bd2e646d8d4fac6ec81115aa4c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e8d42874296e149eab4131d7fe6ecd1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -34313,12 +34313,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b59b392fa864c3b48ac5f282f2c92fcc,
         type: 3}
       propertyPath: m_Name
-      value: frame (37)
+      value: painting2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b59b392fa864c3b48ac5f282f2c92fcc,
         type: 3}
       propertyPath: m_TagString
-      value: NotSelectable
+      value: Selectable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b59b392fa864c3b48ac5f282f2c92fcc, type: 3}
@@ -65523,12 +65523,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b59b392fa864c3b48ac5f282f2c92fcc,
         type: 3}
       propertyPath: m_Name
-      value: painting2
+      value: frame (34)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b59b392fa864c3b48ac5f282f2c92fcc,
         type: 3}
       propertyPath: m_TagString
-      value: Selectable
+      value: NotSelectable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b59b392fa864c3b48ac5f282f2c92fcc, type: 3}
@@ -71293,6 +71293,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1955267561
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955267558}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6fa2844f46811f643be1e720d735f861, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1955267562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955267558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 014301d9f28cd074b872fc35a43a268f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1955743143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74884,7 +74915,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 873c761940d0543438447cdae6fe8ab9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e786551e47414dc2923d704ec781509, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -76575,7 +76606,7 @@ PrefabInstance:
     - target: {fileID: 8416272007918961125, guid: 202f5da29fca25c46adaef64323a96a8,
         type: 3}
       propertyPath: m_Name
-      value: Daniel_in_the_Lions_Den
+      value: Unwanted_Advances
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 202f5da29fca25c46adaef64323a96a8, type: 3}
@@ -77957,6 +77988,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 515748138}
         m_MethodName: UseLantern
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1452542669}
+        m_MethodName: EnableMonster
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

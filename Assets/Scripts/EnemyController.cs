@@ -36,7 +36,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] public EnableMovementEvent enableMovementEvent;
 
     void Start(){
-        gameObject.SetActive(false);
+        if (FirstRunDetector.firstRun) {
+            gameObject.SetActive(false);
+        }
         agent.updateRotation = false;
         currentRandomPoint = 45;
         fieldOfView = 90;
@@ -155,5 +157,9 @@ public class EnemyController : MonoBehaviour
     public void HearBells(Transform pos) {
         bellsPos = pos; 
         findBells = true;
+    }
+
+    public void EnableMonster() {
+        gameObject.SetActive(true);
     }
 }

@@ -75,7 +75,6 @@ public class SelectionManager : MonoBehaviour
         }
     }
 
-
     void DestroyPainting(Transform selection, bool gramophoneTrigger) {
         canvas.enabled = true;
         instructionLabel.GetComponent<TMP_Text>().text = "Take Painting";

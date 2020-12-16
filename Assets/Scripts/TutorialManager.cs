@@ -27,9 +27,6 @@ public class TutorialManager : MonoBehaviour
         if (FirstRunDetector.firstRun) {
             if (seenJournal && toggledJournal && putAwayJournal && usedLantern) {
                 enableMovementEvent.Invoke(true);
-                instructionLabel.GetComponent<TMP_Text>().text = "";
-                buttonLabel.GetComponent<TMP_Text>().text = "";
-                buttonBackground.enabled = false;
                 endTutorialEvent.Invoke();
             } 
             else if (seenJournal && toggledJournal && putAwayJournal) {
