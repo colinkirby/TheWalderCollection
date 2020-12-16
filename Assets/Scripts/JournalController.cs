@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class JournalController : MonoBehaviour
 {
@@ -145,7 +146,8 @@ public class JournalController : MonoBehaviour
         foundPaintings++;
         if (foundPaintings >= 6) {
             print("you win!");
-            winEvent.Invoke(); // this will be a scene reload to the end scene 
+            //winEvent.Invoke(); // this will be a scene reload to the end scene
+            SceneManager.LoadScene("End"); 
         }
         Image currPage = pages[page];
         Sprite newPage = pages_x[page];

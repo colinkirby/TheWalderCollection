@@ -26,7 +26,8 @@ public class UITypeWriter: MonoBehaviour
     private char charPeriod;
 
     private char charNewLine;
-    public GameObject sceneManager; 
+    public GameObject sceneChanger; 
+    public GameObject canvasFader;
 
     public AudioClip typing;
     public AudioClip ding;
@@ -112,8 +113,15 @@ public class UITypeWriter: MonoBehaviour
             }
             count++;
         }
-        yield return new WaitForSeconds(5f);
 
-        sceneManager.GetComponent<SceneChanger>().FadeToScene();
+        if(SceneManager.GetActiveScene().name == "Intro_2") {
+            canvasFader.GetComponent<CanvasFader>().Fade(); 
+            yield return new WaitForSeconds(5f);
+            SceneManager.LoadScene("MainScene");
+
+        } else{
+            yield return new WaitForSeconds(5f);
+            sceneChanger.GetComponent<SceneChanger>().FadeToScene();
+        }
     }
 }

@@ -63,7 +63,7 @@ public class SceneSequence : MonoBehaviour
         yield return new WaitForSeconds(8);
         fader.Play("FadeOut2");
         yield return new WaitForSeconds(4);
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("Intro_2");
         
         yield break;
     }

@@ -15,7 +15,7 @@ public class GramophoneController : MonoBehaviour
     // Update is called once per frame
     public void Play() {
         gramAudio.Play();
-        Invoke("EnableDisabling", 5);
+        Invoke("EnableDisabling", 8);
 
     }
 

@@ -411,7 +411,8 @@ MonoBehaviour:
   delayToStart: 0
   delayBetweenChars: 0.05
   delayAfterPunctuation: 0.4
-  sceneManager: {fileID: 0}
+  sceneChanger: {fileID: 0}
+  canvasFader: {fileID: 848859620}
   typing: {fileID: 8300000, guid: b40cd24bf62be3d4da6f521e8c490180, type: 3}
   ding: {fileID: 8300000, guid: 22e1ab5555283b74e8c12976d4ad679e, type: 3}
   typeOneShots:
@@ -499,10 +500,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 10000, y: 2000}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

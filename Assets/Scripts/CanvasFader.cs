@@ -7,6 +7,7 @@ public class CanvasFader : MonoBehaviour
 
     private bool faded = false;
     public float duration = 10f;
+    
 
     void Start()
     {
