@@ -61,7 +61,8 @@ public class EnemyController : MonoBehaviour
                     playerLantern.enabled = true;
                 }
                 anchorCanvas.enabled = false;
-                StartCoroutine(FadeBlackOutSquare());
+                monsterSounds.Death();
+                FadeScene("MainScene");
             }
             else if (playerDist <= chaseDistance) {
                 Chase();
@@ -138,20 +139,23 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    IEnumerator FadeBlackOutSquare(float fadeSpeed = 0.5f) {
-        monsterSounds.Death();
+    public void FadeScene(string sceneName) {
+        StartCoroutine(FadeBlackOutSquare(sceneName));
+    }
+
+    IEnumerator FadeBlackOutSquare(string sceneName) {
         Color objectColor = blackOutSquare.GetComponent<Image>().color;
         float fadeAmount;
 
         while (blackOutSquare.GetComponent<Image>().color.a < 1) {
-            fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
+            fadeAmount = objectColor.a + (0.5f * Time.deltaTime);
 
             objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
             blackOutSquare.GetComponent<Image>().color = objectColor; 
             yield return null; 
         }
         SceneInfo.firstRun = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void HearBells(Transform pos) {

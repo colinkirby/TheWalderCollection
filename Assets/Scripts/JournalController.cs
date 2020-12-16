@@ -23,6 +23,9 @@ public class JournalController : MonoBehaviour
     public UnityEvent flipJournalEvent;
     public UnityEvent closeJournalEvent;
 
+    [System.Serializable] public class FadeEvent : UnityEvent<string> {}
+    [SerializeField] public FadeEvent fadeEvent;
+
     private bool openedJournal = false;
     private bool flippedJournal = false;
     private bool closedJournal = false;
@@ -144,7 +147,7 @@ public class JournalController : MonoBehaviour
     public void CrossOffPage(string page) {
         foundPaintings++;
         if (foundPaintings >= 6) {
-            SceneManager.LoadScene("End"); 
+            fadeEvent.Invoke("End");
         }
         Image currPage = pages[page];
         Sprite newPage = pages_x[page];
