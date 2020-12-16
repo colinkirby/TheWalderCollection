@@ -19,29 +19,36 @@ public class TutorialManager : MonoBehaviour
     public Image buttonBackground;
 
     public UnityEvent endTutorialEvent;
+    [System.Serializable] public class EnableMovementEvent : UnityEvent<bool> {}
+    [SerializeField] public EnableMovementEvent enableMovementEvent;
 
     void Update() 
     {
         if (FirstRunDetector.firstRun) {
             if (seenJournal && toggledJournal && putAwayJournal && usedLantern) {
+                enableMovementEvent.Invoke(true);
                 instructionLabel.GetComponent<TMP_Text>().text = "";
                 buttonLabel.GetComponent<TMP_Text>().text = "";
                 buttonBackground.enabled = false;
                 endTutorialEvent.Invoke();
             } 
             else if (seenJournal && toggledJournal && putAwayJournal) {
+                enableMovementEvent.Invoke(false);
                 instructionLabel.GetComponent<TMP_Text>().text = "Lantern";
                 buttonLabel.GetComponent<TMP_Text>().text = "F";
             }
             else if (seenJournal && toggledJournal) {
+                enableMovementEvent.Invoke(false);
                 instructionLabel.GetComponent<TMP_Text>().text = "Put Away";
                 buttonLabel.GetComponent<TMP_Text>().text = "Q";
             }
             else if (seenJournal) {
+                enableMovementEvent.Invoke(false);
                 instructionLabel.GetComponent<TMP_Text>().text = "Flip page";
                 buttonLabel.GetComponent<TMP_Text>().text = "Tab";
             } 
             else {
+                enableMovementEvent.Invoke(false);
                 canvas.enabled = true;
                 instructionLabel.GetComponent<TMP_Text>().text = "Read Journal";
                 buttonLabel.GetComponent<TMP_Text>().text = "Q";

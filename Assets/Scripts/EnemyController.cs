@@ -32,12 +32,13 @@ public class EnemyController : MonoBehaviour
     private bool findBells = false;
     private Transform bellsPos;
     
-    [System.Serializable] public class DisableMovementEvent : UnityEvent<bool> {}
-    [SerializeField] public DisableMovementEvent disableMovementEvent;
+    [System.Serializable] public class EnableMovementEvent : UnityEvent<bool> {}
+    [SerializeField] public EnableMovementEvent enableMovementEvent;
 
     void Start(){
+        gameObject.SetActive(false);
         agent.updateRotation = false;
-        currentRandomPoint = Random.Range(0, randomPoints.Length);
+        currentRandomPoint = 45;
         fieldOfView = 90;
     }
 
@@ -53,7 +54,7 @@ public class EnemyController : MonoBehaviour
 
         if (SeeingPlayer()) {
             if (playerDist <= chaseDistance && agent.velocity == Vector3.zero) {
-                disableMovementEvent.Invoke(false);
+                enableMovementEvent.Invoke(false);
                 if (!playerLantern.enabled) {
                     playerLantern.enabled = true;
                 }
