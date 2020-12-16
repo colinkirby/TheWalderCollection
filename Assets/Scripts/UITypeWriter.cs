@@ -113,6 +113,7 @@ public class UITypeWriter: MonoBehaviour
             count++;
         }
         yield return new WaitForSeconds(5f);
+
         sceneManager.GetComponent<SceneChanger>().FadeToScene();
     }
 }

@@ -16,9 +16,7 @@ public class SceneSequence : MonoBehaviour
     public GameObject canvas2;
 
     public GameObject titleCanvas;
-
-   
-
+    
     public GameObject canvas3;
     private Transform pos;
 
@@ -29,8 +27,6 @@ public class SceneSequence : MonoBehaviour
     private Animator carAnim;
 
     private Animator fader;
-
-
 
     void Start() {
         cam1 = cam1.GetComponent<Camera>();
@@ -48,14 +44,10 @@ public class SceneSequence : MonoBehaviour
     public void Play()
     {
         canvas1.SetActive(false);
-
-
         StartCoroutine ( Sequence());
     }
 
-    // Update is called once per frame
     IEnumerator Sequence() {
-        // yield return new WaitForSeconds(2);
         canvas2.SetActive(false);
         cam1.enabled = true;
         mainCamera.enabled = false;

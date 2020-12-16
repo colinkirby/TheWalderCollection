@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using static FirstRunDetector;
+using static SceneInfo;
 
 public class SelectionManager : MonoBehaviour
 {
@@ -43,7 +43,7 @@ public class SelectionManager : MonoBehaviour
     }
 
     void RayCastObject() {
-        if (tutorialDone || !FirstRunDetector.firstRun) {
+        if (tutorialDone || !SceneInfo.firstRun) {
             var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2f, Screen.height/2f, 0f));
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 3)) {

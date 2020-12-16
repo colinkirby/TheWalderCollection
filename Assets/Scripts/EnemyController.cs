@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityEngine.Events;
-using static FirstRunDetector;
+using static SceneInfo;
 
 public class EnemyController : MonoBehaviour
 {   
@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] public EnableMovementEvent enableMovementEvent;
 
     void Start(){
-        if (FirstRunDetector.firstRun) {
+        if (SceneInfo.firstRun) {
             gameObject.SetActive(false);
         }
         agent.updateRotation = false;
@@ -150,7 +150,7 @@ public class EnemyController : MonoBehaviour
             blackOutSquare.GetComponent<Image>().color = objectColor; 
             yield return null; 
         }
-        FirstRunDetector.firstRun = false;
+        SceneInfo.firstRun = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
