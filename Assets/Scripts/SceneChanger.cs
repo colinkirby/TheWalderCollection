@@ -8,8 +8,6 @@ public class SceneChanger : MonoBehaviour
 {
     public Animator animator;
     public GameObject sceneSequenceManager;
-
-    // Update is called once per frame
     
     void Update()
     {

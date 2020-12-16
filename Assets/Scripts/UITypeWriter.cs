@@ -26,7 +26,7 @@ public class UITypeWriter: MonoBehaviour
     private char charPeriod;
 
     private char charNewLine;
-    public GameObject sceneManager;
+    public GameObject sceneManager; 
 
     public AudioClip typing;
     public AudioClip ding;
@@ -71,8 +71,6 @@ public class UITypeWriter: MonoBehaviour
 
     IEnumerator PlayText()
     {
-
-        //audioClip.Play();
         int count = 0;
 
         foreach (char c in story)
@@ -81,19 +79,13 @@ public class UITypeWriter: MonoBehaviour
 
             if (lastCharPunctuation)  //If previous character was a comma/period, pause typing
             {
-                //audioClip.Stop();
-                //audioClip.clip = typing;
                 yield return new WaitForSeconds(delayBetweenChars = delayAfterPunctuation);
                 lastCharPunctuation = false;
-                //audioClip.Play();
             }
 
             if (endOfSentence)
             {
-                //audioClip.Stop();
-                //audioClip.clip = ding;
                 yield return new WaitUntil(() => Input.anyKeyDown);
-                //audioClip.Play();
                 audioSource.clip = ding;
                 audioSource.Play();
                 yield return new WaitWhile (()=> audioSource.isPlaying);
@@ -119,8 +111,6 @@ public class UITypeWriter: MonoBehaviour
                 yield return new WaitWhile (()=> audioSource.isPlaying);
             }
             count++;
-
-            //yield return new WaitForSeconds(delayBetweenChars);
         }
         yield return new WaitForSeconds(5f);
         sceneManager.GetComponent<SceneChanger>().FadeToScene();
