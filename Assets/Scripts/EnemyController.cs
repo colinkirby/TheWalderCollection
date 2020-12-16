@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
@@ -29,8 +30,8 @@ public class EnemyController : MonoBehaviour
 
     public Canvas anchorCanvas;
 
-    private bool findBells = false;
-    private Transform bellsPos;
+    private bool findSound = false;
+    private Transform soundPos;
     
     [System.Serializable] public class EnableMovementEvent : UnityEvent<bool> {}
     [SerializeField] public EnableMovementEvent enableMovementEvent;
@@ -67,8 +68,8 @@ public class EnemyController : MonoBehaviour
             else if (playerDist <= chaseDistance) {
                 Chase();
             } 
-            else if (findBells) {
-                FindBells();
+            else if (findSound) {
+                FindSound();
             }
             else {
                 Walk();
@@ -78,8 +79,8 @@ public class EnemyController : MonoBehaviour
                 Vector3 position = new Vector3(player.position.x, transform.position.y, player.position.z);
                 transform.LookAt(position);
             } 
-            else if (findBells) {
-                FindBells();
+            else if (findSound) {
+                FindSound();
             }
             else {
                 Walk();
@@ -127,15 +128,15 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void FindBells(){
+    void FindSound(){
         agent.acceleration = 4;
         agent.speed = chaseVelocity;
-        agent.destination = bellsPos.position;
+        agent.destination = soundPos.position;
         if (agent.remainingDistance > agent.stoppingDistance) {
            character.Move(agent.desiredVelocity, false, false);
         } else {
             character.Move(Vector3.zero, false, false);
-            findBells = false;
+            findSound = false;
         }
     }
 
@@ -158,12 +159,8 @@ public class EnemyController : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void HearBells(Transform pos) {
-        bellsPos = pos; 
-        findBells = true;
-    }
-
-    public void EnableMonster() {
-        gameObject.SetActive(true);
+    public void HearSound(Transform pos) {
+        soundPos = pos; 
+        findSound = true;
     }
 }
