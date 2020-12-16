@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using static SceneInfo;
+using System.Threading;
 
 public class TutorialManager : MonoBehaviour
 {
