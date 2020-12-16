@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 180}
+  m_AnchoredPosition: {x: 0, y: 23}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &353465571
@@ -248,7 +248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23.5, y: -321}
+  m_AnchoredPosition: {x: 23.5, y: -205}
   m_SizeDelta: {x: 1138.9346, y: 1015.77344}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &532255787
@@ -283,14 +283,18 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "December 15th, 16:55\n\nToday I received a telegram from one Walder Vorral.
-    \nIt would seem a trio of would-be thieves are dead. His estate is \nlocated
-    some seven miles from Oblijaj. Somehow, its existence \nhas evaded me. It is
-    also an art museum of sorts. Frankly, \nI trust no man who would establish such
-    a piss-poor business venture.\n\nThat is beside the point, however. Three people
-    are dead. \nSomething tells me they are our missing youth: Evike Winckler-Zucker,\nRahel
-    Winckler-Zucker, and Janos Kulcs. Will report back, \nafter I venture out to
-    there. \n\n-Chief Inspector Marton Hell"
+  m_Text: "December 15th, 23:45\n\nRahel Winckler-Zucker and Janos Kulc were killed
+    on site, \ninside the art museum. Rahel was found, torn to ribbons, in a basement
+    \ndumbwaiter. Janos was all over a glass observatory in the estate's \nnorth
+    wing. The guard dogs, Mr. Vorral said. \n\nEvike Winckler-Zucker made it three
+    miles. In the darkness of the \ncountryside, alone, with a cheap leather knapsack
+    stuffed \nwith invaluable artwork. Apparently the dogs gave chase. \nVeritable
+    hell-hounds, those dogs must be. \n\nI asked to see the dogs. Mr. Vorral took
+    me to their kennel, which was \nlocated in the garage on the estate's west wing.
+    Sure enough,\nthere were some incredibly vicious hounds there. There was also
+    \na white motorcar. I didn't press Mr. Vorral on this. \n\nNot yet. \nI'm at
+    the station now. There is very much to think about indeed. \nI need a cigar.
+    \n\nSomething does not add up. \n\n- Chief Inspector Marton Hell "
 --- !u!222 &532255788
 CanvasRenderer:
   m_ObjectHideFlags: 0

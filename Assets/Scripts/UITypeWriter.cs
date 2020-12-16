@@ -119,7 +119,17 @@ public class UITypeWriter: MonoBehaviour
             yield return new WaitForSeconds(5f);
             SceneManager.LoadScene("MainScene");
 
-        } else{
+        } 
+        else if(SceneManager.GetActiveScene().name == "End") {
+            canvasFader.GetComponent<CanvasFader>().Fade(); 
+            yield return new WaitForSeconds(5f);
+            SceneManager.LoadScene("End_2");
+        }
+        else if(SceneManager.GetActiveScene().name == "End_2") {
+            canvasFader.GetComponent<CanvasFader>().Fade();
+        }
+        else {
+            canvasFader.GetComponent<CanvasFader>().Fade();
             yield return new WaitForSeconds(5f);
             sceneChanger.GetComponent<SceneChanger>().FadeToScene();
         }

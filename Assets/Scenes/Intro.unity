@@ -1799,7 +1799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 494}
+  m_AnchoredPosition: {x: 0, y: 4}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &353465571
@@ -3661,13 +3661,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 532255787}
-  instructions: {fileID: 1291423410}
   playOnAwake: 1
   delayToStart: 0
   delayBetweenChars: 0.05
   delayAfterPunctuation: 0.4
-  sceneChanger: {fileID: 0}
-  canvasFader: {fileID: 0}
+  sceneChanger: {fileID: 1915070576}
+  canvasFader: {fileID: 848859620}
   typing: {fileID: 8300000, guid: b40cd24bf62be3d4da6f521e8c490180, type: 3}
   ding: {fileID: 8300000, guid: 22e1ab5555283b74e8c12976d4ad679e, type: 3}
   typeOneShots:
