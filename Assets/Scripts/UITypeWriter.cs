@@ -73,6 +73,7 @@ public class UITypeWriter: MonoBehaviour
     {
 
         //audioClip.Play();
+        int count = 0;
 
         foreach (char c in story)
         {
@@ -113,10 +114,11 @@ public class UITypeWriter: MonoBehaviour
 
             text.text += c;
             lastCharacter = c;
-            if(lastCharacter != charNewLine) {
+            if(lastCharacter != charNewLine && count % 2 == 0) {
                 PlayRandom();
                 yield return new WaitWhile (()=> audioSource.isPlaying);
             }
+            count++;
 
             //yield return new WaitForSeconds(delayBetweenChars);
         }
