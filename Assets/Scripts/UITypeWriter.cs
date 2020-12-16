@@ -34,7 +34,7 @@ public class UITypeWriter: MonoBehaviour
     public AudioClip[] typeOneShots;
 
     private AudioSource audioSource;
-
+    
     void Awake()
     {
         audioSource = gameObject.GetComponent<AudioSource>();

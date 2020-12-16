@@ -19,7 +19,6 @@ public class JournalController : MonoBehaviour
     private Dictionary<string, Image> pages;
     private Dictionary<string, Sprite> pages_x;
 
-    public UnityEvent winEvent;
     public UnityEvent openJournalEvent;
     public UnityEvent flipJournalEvent;
     public UnityEvent closeJournalEvent;
@@ -145,8 +144,6 @@ public class JournalController : MonoBehaviour
     public void CrossOffPage(string page) {
         foundPaintings++;
         if (foundPaintings >= 6) {
-            print("you win!");
-            //winEvent.Invoke(); // this will be a scene reload to the end scene
             SceneManager.LoadScene("End"); 
         }
         Image currPage = pages[page];

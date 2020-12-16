@@ -53705,7 +53705,7 @@ PrefabInstance:
     - target: {fileID: 1788737941032379941, guid: ab2cf954ad3054cf0bce626e64224002,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6972645281995071210, guid: ab2cf954ad3054cf0bce626e64224002,
         type: 3}
@@ -72563,9 +72563,6 @@ MonoBehaviour:
   page4_x: {fileID: 21300000, guid: 6ac53c42df3ca4bf9b380644a5678a76, type: 3}
   page5_x: {fileID: 21300000, guid: 9ecabd1729ede479f9eb27ccfb105e53, type: 3}
   page6_x: {fileID: 21300000, guid: 2c95babd2862d43fda54a838918a07f8, type: 3}
-  winEvent:
-    m_PersistentCalls:
-      m_Calls: []
   openJournalEvent:
     m_PersistentCalls:
       m_Calls:
