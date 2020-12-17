@@ -8,7 +8,7 @@ using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityEngine.Events;
-using static SceneInfo;
+using static SceneVariables;
 
 public class EnemyController : MonoBehaviour
 {   
@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] public EnableMovementEvent enableMovementEvent;
 
     void Start(){
-        if (SceneInfo.firstRun) {
+        if (SceneVariables.firstRun) {
             gameObject.SetActive(false);
         }
         agent.updateRotation = false;
@@ -155,12 +155,16 @@ public class EnemyController : MonoBehaviour
             blackOutSquare.GetComponent<Image>().color = objectColor; 
             yield return null; 
         }
-        SceneInfo.firstRun = false;
+        SceneVariables.firstRun = false;
         SceneManager.LoadScene(sceneName);
     }
 
     public void HearSound(Transform pos) {
         soundPos = pos; 
         findSound = true;
+    }
+
+    public void EnableMonster() {
+        gameObject.SetActive(true);
     }
 }

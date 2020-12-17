@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using static SceneInfo;
+using static SceneVariables;
 using System.Threading;
 
 public class TutorialManager : MonoBehaviour
@@ -25,7 +25,7 @@ public class TutorialManager : MonoBehaviour
 
     void Update() 
     {
-        if (SceneInfo.firstRun) {
+        if (SceneVariables.firstRun) {
             if (seenJournal && toggledJournal && putAwayJournal && usedLantern) {
                 enableMovementEvent.Invoke(true);
                 endTutorialEvent.Invoke();

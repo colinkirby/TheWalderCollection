@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using static SceneInfo;
+using static SceneVariables;
 
 public class SelectionManager : MonoBehaviour
 {
@@ -18,8 +18,8 @@ public class SelectionManager : MonoBehaviour
     [System.Serializable] public class SelectEvent : UnityEvent<string> {}
     [SerializeField] public SelectEvent selectEvent;
 
-    [System.Serializable] public class BellsEvent : UnityEvent<Transform> {}
-    [SerializeField] public BellsEvent bellsEvent;
+    [System.Serializable] public class SoundEvent : UnityEvent<Transform> {}
+    [SerializeField] public SoundEvent soundEvent;
 
     private Sprite[] spriteArray;
 
@@ -43,7 +43,7 @@ public class SelectionManager : MonoBehaviour
     }
 
     void RayCastObject() {
-        if (tutorialDone || !SceneInfo.firstRun) {
+        if (tutorialDone || !SceneVariables.firstRun) {
             var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2f, Screen.height/2f, 0f));
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 3)) {
@@ -83,6 +83,7 @@ public class SelectionManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)) {
             if(gramophoneTrigger) {
                 gramophone.GetComponent<GramophoneController>().Play();
+                soundEvent.Invoke(gramophone.transform);
             }
             Destroy(selection.gameObject);
             selectEvent.Invoke(selection.name);
@@ -96,7 +97,7 @@ public class SelectionManager : MonoBehaviour
         buttonBackground.enabled = true;
         if(Input.GetKeyDown(KeyCode.E)) {
             selection.gameObject.GetComponent<FrameAnimationController>().PlayFrameAnim();
-            bellsEvent.Invoke(selection);
+            soundEvent.Invoke(selection);
         }
     }
 
