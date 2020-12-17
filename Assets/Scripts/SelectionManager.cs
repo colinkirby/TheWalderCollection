@@ -82,8 +82,8 @@ public class SelectionManager : MonoBehaviour
         buttonBackground.enabled = true;
         if(Input.GetKeyDown(KeyCode.E)) {
             if(gramophoneTrigger) {
-                gramophone.GetComponent<GramophoneController>().Play();
                 soundEvent.Invoke(gramophone.transform);
+                gramophone.GetComponent<GramophoneController>().Play();
             }
             Destroy(selection.gameObject);
             selectEvent.Invoke(selection.name);
@@ -96,8 +96,8 @@ public class SelectionManager : MonoBehaviour
         buttonLabel.GetComponent<TMP_Text>().text = "E";
         buttonBackground.enabled = true;
         if(Input.GetKeyDown(KeyCode.E)) {
-            selection.gameObject.GetComponent<FrameAnimationController>().PlayFrameAnim();
             soundEvent.Invoke(selection);
+            selection.gameObject.GetComponent<FrameAnimationController>().PlayFrameAnim();
         }
     }
 
