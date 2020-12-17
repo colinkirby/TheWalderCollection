@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class AmbienceController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public GameObject player;
-    public GameObject monster;
-
     private AudioSource audioSource;
 
-    // Update is called once per frame
+    public GameObject player;
+    public GameObject monster;
 
     void Start() {
         audioSource = GetComponent<AudioSource>();
     }
-    void Update()
-    {
+
+    void Update() {
         float dist = GetDistance();
         AdjustVolume(dist);
     }
@@ -27,7 +24,9 @@ public class AmbienceController : MonoBehaviour
     }
 
     private void AdjustVolume(float distance) {
-        if(distance > 100f) { distance = 100f; }
+        if (distance > 100f) { 
+            distance = 100f; 
+        }
 
         float val = (100f - distance) / 100f;
         val = (val * val) / 2;

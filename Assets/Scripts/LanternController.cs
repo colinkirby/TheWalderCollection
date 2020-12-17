@@ -5,8 +5,9 @@ using UnityEngine.Events;
 
 public class LanternController : MonoBehaviour
 {
-	Light lantern;
+	private Light lantern;
 	private bool turnedOnLantern = false;
+
 	public UnityEvent turnOnLanternEvent;
 	
 	void Start () {
@@ -24,5 +25,4 @@ public class LanternController : MonoBehaviour
 			}
 		}
 	}
- 
 }

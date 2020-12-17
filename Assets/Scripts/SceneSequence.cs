@@ -6,9 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneSequence : MonoBehaviour
 {
+    private Transform pos;
+    private Animator cam1Anim;
+    private Animator cam2Anim;
+    private Animator carAnim;
+    private Animator fader;
+
     public Camera cam1;
     public Camera cam2;
-
     public Camera mainCamera;
 
     public GameObject car;
@@ -16,17 +21,7 @@ public class SceneSequence : MonoBehaviour
     public GameObject canvas2;
 
     public GameObject titleCanvas;
-    
     public GameObject canvas3;
-    private Transform pos;
-
-    private Animator cam1Anim;
-
-    private Animator cam2Anim;
-
-    private Animator carAnim;
-
-    private Animator fader;
 
     void Start() {
         cam1 = cam1.GetComponent<Camera>();
@@ -34,15 +29,13 @@ public class SceneSequence : MonoBehaviour
         mainCamera = mainCamera.GetComponent<Camera>();
         pos = GetComponent<Transform>();
         
-
         cam1Anim = pos.Find("SceneCamera1").GetComponent<Animator>();
         cam2Anim = pos.Find("SceneCamera2").GetComponent<Animator>();
         fader = canvas3.GetComponent<Animator>();
         carAnim = car.GetComponent<Animator>();
-
     }
-    public void Play()
-    {
+
+    public void Play() {
         canvas1.SetActive(false);
         StartCoroutine ( Sequence());
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterSoundController : MonoBehaviour
+public class MonsterSoundController : MonoBehaviour 
 {
     public AudioClip[] clips;
     public AudioClip death;

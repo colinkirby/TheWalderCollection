@@ -12,31 +12,31 @@ using static SceneVariables;
 
 public class EnemyController : MonoBehaviour
 {   
+
+    private float playerDist, randomPointDist;
+    private float fieldOfView;
+    private float chaseDistance;
+
+    private bool findSound = false;
+    private Transform soundPos;
+
     public NavMeshAgent agent;
     public Transform player;
     public Light playerLantern;
     public Transform[] randomPoints; 
+    public int currentRandomPoint;
 
     public ThirdPersonCharacter character;
     public MonsterSoundController monsterSounds;
 
-    private float playerDist, randomPointDist;
-    private float fieldOfView;
-    public int currentRandomPoint;
-
     public float walkVelocity, chaseVelocity;
-    private float chaseDistance;
     public GameObject blackOutSquare;
-
     public Canvas anchorCanvas;
-
-    private bool findSound = false;
-    private Transform soundPos;
     
     [System.Serializable] public class EnableMovementEvent : UnityEvent<bool> {}
     [SerializeField] public EnableMovementEvent enableMovementEvent;
 
-    void Start(){
+    void Start() {
         if (SceneVariables.firstRun) {
             gameObject.SetActive(false);
         }
@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
         fieldOfView = 90;
     }
 
-    void Update(){
+    void Update() {
         if (playerLantern.enabled) {
             chaseDistance = 5f;
         } else {
@@ -64,25 +64,20 @@ public class EnemyController : MonoBehaviour
                 anchorCanvas.enabled = false;
                 monsterSounds.Death();
                 FadeScene("MainScene");
-            }
-            else if (playerDist <= chaseDistance) {
+            } else if (playerDist <= chaseDistance) {
                 Chase();
-            } 
-            else if (findSound) {
+            } else if (findSound) {
                 FindSound();
-            }
-            else {
+            } else {
                 Walk();
             }
         } else {
             if (playerDist <= chaseDistance) {
                 Vector3 position = new Vector3(player.position.x, transform.position.y, player.position.z);
                 transform.LookAt(position);
-            } 
-            else if (findSound) {
+            } else if (findSound) {
                 FindSound();
-            }
-            else {
+            } else {
                 Walk();
             }
         }
@@ -104,7 +99,7 @@ public class EnemyController : MonoBehaviour
         return false;
     }
 
-    void Walk(){
+    void Walk() {
         agent.acceleration = 1;
         agent.speed = walkVelocity;
         agent.destination = randomPoints[currentRandomPoint].position;
@@ -115,7 +110,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void Chase(){
+    void Chase() {
         Vector3 position = new Vector3(player.position.x, transform.position.y, player.position.z);
         transform.LookAt(position);
         agent.acceleration = 4;
@@ -128,7 +123,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void FindSound(){
+    void FindSound() {
         agent.acceleration = 4;
         agent.speed = chaseVelocity;
         agent.destination = soundPos.position;

@@ -5,19 +5,24 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+// Bret we know this class is highly inefficient, we are sorry :( We had many issues and lots on our plates
 public class JournalController : MonoBehaviour
 {
-    public Canvas canvas;
-
-    public Image note;
-    public Image page1, page2, page3, page4, page5, page6;
-    public Sprite page1_x, page2_x, page3_x, page4_x, page5_x, page6_x;
-
     private int currentPage = 1;
     private int foundPaintings = 0;
 
     private Dictionary<string, Image> pages;
     private Dictionary<string, Sprite> pages_x;
+
+    private bool openedJournal = false;
+    private bool flippedJournal = false;
+    private bool closedJournal = false;
+
+    public Canvas canvas;
+
+    public Image note;
+    public Image page1, page2, page3, page4, page5, page6;
+    public Sprite page1_x, page2_x, page3_x, page4_x, page5_x, page6_x;
 
     public UnityEvent openJournalEvent;
     public UnityEvent flipJournalEvent;
@@ -26,12 +31,8 @@ public class JournalController : MonoBehaviour
     [System.Serializable] public class FadeEvent : UnityEvent<string> {}
     [SerializeField] public FadeEvent fadeEvent;
 
-    private bool openedJournal = false;
-    private bool flippedJournal = false;
-    private bool closedJournal = false;
-
     void Start() {
-        pages = new Dictionary<string, Image>(){
+        pages = new Dictionary<string, Image>() {
 	                {"painting1", page1},
 	                {"painting2", page2},
 	                {"painting3", page3},
@@ -40,7 +41,7 @@ public class JournalController : MonoBehaviour
                     {"painting6", page6}
         };
 
-        pages_x = new Dictionary<string, Sprite>(){
+        pages_x = new Dictionary<string, Sprite>() {
 	                {"painting1", page1_x},
 	                {"painting2", page2_x},
 	                {"painting3", page3_x},
@@ -50,15 +51,13 @@ public class JournalController : MonoBehaviour
         };
     }
 
-    void Update()
-    {
+    void Update() {
         if (Input.GetKeyUp (KeyCode.Q)) {
             canvas.enabled = !canvas.enabled;
             if (!openedJournal) {
                 openJournalEvent.Invoke();
                 openedJournal = true;
-            } 
-            else if (!closedJournal) {
+            } else if (!closedJournal) {
                 closeJournalEvent.Invoke();
                 closedJournal = true;
             }
@@ -74,7 +73,7 @@ public class JournalController : MonoBehaviour
     }
 
     void NextPage() {
-        if(currentPage < 7) { currentPage++; }
+        if (currentPage < 7) { currentPage++; }
         else { currentPage = 1; }
 
         switch( currentPage ) {

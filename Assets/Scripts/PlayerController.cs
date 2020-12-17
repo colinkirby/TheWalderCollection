@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private float verticalSpeed = 0;
+    private float jumpHeight = 1.0f;
+    private float gravityValue = -9.81f;
+    private bool groundedPlayer;
+    private bool isInputEnabled = true;
+
     public CharacterController characterController;
     public float speed = 3f;
 
@@ -12,21 +18,14 @@ public class PlayerController : MonoBehaviour
     public float upperLimit = -50;
     public float lowerLimit = 50;
 
-    private float verticalSpeed = 0;
-    private float jumpHeight = 1.0f;
-    private float gravityValue = -9.81f;
-    private bool groundedPlayer;
-    private bool isInputEnabled = true;
-
-    void Update()
-    {
+    void Update() {
         if (isInputEnabled) {
             Move();
             Rotate();
         }
     }
 
-    void Move(){
+    void Move() {
         float horizontalMovement = Input.GetAxis("Horizontal");
         float verticalMovement = Input.GetAxis("Vertical");
 
@@ -38,14 +37,12 @@ public class PlayerController : MonoBehaviour
         }
 
         // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
-        {
+        if (Input.GetButtonDown("Jump") && groundedPlayer) {
             verticalSpeed += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
         // Sprinting
-        if (Input.GetKeyDown (KeyCode.LeftShift))
-        {
+        if (Input.GetKeyDown (KeyCode.LeftShift)) {
             speed = 6f;
         } 
         if (Input.GetKeyUp (KeyCode.LeftShift)) {
@@ -74,19 +71,20 @@ public class PlayerController : MonoBehaviour
 
         // Rotates the player (the game object this script is attached to)
         transform.Rotate(0, horizRot * mouseSensitivity, 0);
+
         // Rotates the camera up and down
         cameraTransform.Rotate(-vertRot*mouseSensitivity, 0, 0);
 
         // Holds the rotation of the camera around the x, y, and z axes
         Vector3 currentRotation = cameraTransform.localEulerAngles;
-        if (currentRotation.x > 180){
+        if (currentRotation.x > 180) {
             currentRotation.x -= 360;
         }
         currentRotation.x = Mathf.Clamp(currentRotation.x, upperLimit, lowerLimit);
         cameraTransform.localRotation = Quaternion.Euler(currentRotation);
     }
 
-    public void ToggleInput(bool enabled){
+    public void ToggleInput(bool enabled) {
         isInputEnabled = enabled;
     }
 }

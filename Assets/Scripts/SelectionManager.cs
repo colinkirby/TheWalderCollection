@@ -8,6 +8,17 @@ using static SceneVariables;
 
 public class SelectionManager : MonoBehaviour
 {
+    private Sprite[] spriteArray;
+    private bool tutorialDone = false;
+
+    public Canvas canvas;
+    public GameObject instructionLabel;
+    public GameObject buttonLabel;
+
+    public GameObject gramophone;
+    public Image plaque;
+    public Image buttonBackground;
+
     [SerializeField] private Material highlightMaterial;
     [SerializeField] private string selectableTag = "Selectable";
     [SerializeField] private string notSelectableTag = "NotSelectable";
@@ -21,24 +32,11 @@ public class SelectionManager : MonoBehaviour
     [System.Serializable] public class SoundEvent : UnityEvent<Transform> {}
     [SerializeField] public SoundEvent soundEvent;
 
-    private Sprite[] spriteArray;
-
-    public Canvas canvas;
-    public GameObject instructionLabel;
-    public GameObject buttonLabel;
-
-    public GameObject gramophone;
-    public Image plaque;
-    public Image buttonBackground;
-
-    private bool tutorialDone = false;
-
     void Start() {
         spriteArray = Resources.LoadAll<Sprite>("Plaques");
     }
     
-    void Update()
-    {
+    void Update() {
         RayCastObject();
     }
 
@@ -49,25 +47,24 @@ public class SelectionManager : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 3)) {
                 var selection = hit.transform;
                 
-                if(selection.CompareTag(selectableTag)) {
+                if (selection.CompareTag(selectableTag)) {
                     DestroyPainting(selection, false);
-                } else if(selection.CompareTag(plaqueTag)) {
+                } else if (selection.CompareTag(plaqueTag)) {
                     TogglePlaque(selection.name);
-                } else if(selection.CompareTag(notSelectableTag)) {
+                } else if (selection.CompareTag(notSelectableTag)) {
                     IncorrectPainting(selection);
-                } else if(selection.CompareTag(gramophoneTag)) {
+                } else if (selection.CompareTag(gramophoneTag)) {
                     StopGramophone(selection);
-                } else if(selection.CompareTag(gramophoneTriggerTag)) {
+                } else if (selection.CompareTag(gramophoneTriggerTag)) {
                     DestroyPainting(selection, true);
-                }
-                else {
-                    if(canvas.enabled) {
+                } else {
+                    if (canvas.enabled) {
                         canvas.enabled = false;
                         plaque.enabled = false;
                     }
                 }
             } else {
-                if(canvas.enabled) {
+                if (canvas.enabled) {
                     canvas.enabled = false;
                     plaque.enabled = false;
                 }
@@ -80,8 +77,8 @@ public class SelectionManager : MonoBehaviour
         instructionLabel.GetComponent<TMP_Text>().text = "Take Painting";
         buttonLabel.GetComponent<TMP_Text>().text = "E";
         buttonBackground.enabled = true;
-        if(Input.GetKeyDown(KeyCode.E)) {
-            if(gramophoneTrigger) {
+        if (Input.GetKeyDown(KeyCode.E)) {
+            if (gramophoneTrigger) {
                 soundEvent.Invoke(gramophone.transform);
                 gramophone.GetComponent<GramophoneController>().Play();
             }
@@ -95,14 +92,14 @@ public class SelectionManager : MonoBehaviour
         instructionLabel.GetComponent<TMP_Text>().text = "Take Painting";
         buttonLabel.GetComponent<TMP_Text>().text = "E";
         buttonBackground.enabled = true;
-        if(Input.GetKeyDown(KeyCode.E)) {
+        if (Input.GetKeyDown(KeyCode.E)) {
             soundEvent.Invoke(selection);
             selection.gameObject.GetComponent<FrameAnimationController>().PlayFrameAnim();
         }
     }
 
     void TogglePlaque(string name) {
-        if(plaque.enabled == false){
+        if (plaque.enabled == false) {
             canvas.enabled = true;
             buttonLabel.GetComponent<TMP_Text>().text = "E";
             buttonBackground.enabled = false;
@@ -113,7 +110,7 @@ public class SelectionManager : MonoBehaviour
             instructionLabel.GetComponent<TMP_Text>().text = "";
             buttonLabel.GetComponent<TMP_Text>().text = "";
             buttonBackground.enabled = false;
-            foreach(var sprite in spriteArray){
+            foreach(var sprite in spriteArray) {
                 if (name == sprite.name) {
                     plaque.GetComponent<Image>().sprite = sprite;
                     plaque.enabled = !plaque.enabled;
@@ -121,7 +118,6 @@ public class SelectionManager : MonoBehaviour
             }
         }
     }
-
 
     void StopGramophone(Transform selection) {
         GramophoneController gramophoneController = gramophone.GetComponent<GramophoneController>();

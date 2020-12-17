@@ -8,8 +8,7 @@ public class GramophoneController : MonoBehaviour
     private AudioSource gramAudio;
     private bool isPlaying = false;
 
-    void Start()
-    {
+    void Start() {
         gramAudio = GetComponent<AudioSource>();
     }
 

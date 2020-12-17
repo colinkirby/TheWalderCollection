@@ -9,9 +9,10 @@ public class SceneChanger : MonoBehaviour
     public Animator animator;
     public GameObject sceneSequenceManager;
     
+    // Shortcut to cut scene
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P)) {
+        if (Input.GetKeyDown(KeyCode.P)) {
             sceneSequenceManager.GetComponent<SceneSequence>().Play();
         }
     }

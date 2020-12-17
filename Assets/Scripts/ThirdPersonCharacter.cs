@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// This script is provided by the Unity Assets store, and was found via the Youtube channel 'Brackeys'
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
 	[RequireComponent(typeof(Rigidbody))]
