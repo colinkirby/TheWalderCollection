@@ -127,6 +127,8 @@ public class UITypeWriter: MonoBehaviour
         }
         else if(SceneManager.GetActiveScene().name == "End_2") {
             canvasFader.GetComponent<CanvasFader>().Fade();
+            yield return new WaitForSeconds(10f);
+            Application.Quit();
         }
         else {
             canvasFader.GetComponent<CanvasFader>().Fade();
